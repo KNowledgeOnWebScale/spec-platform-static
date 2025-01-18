@@ -3,7 +3,7 @@
     "a4ds-attempt-a": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-18T16:53:32.048Z",
+          "latest-run": "2025-01-18T17:03:29.197Z",
           "builds": [
             {
               "date": "2024-12-17T17:24:25.969Z",
@@ -12,7 +12,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-18T16:53:32.049Z",
+          "latest-run": "2025-01-18T17:03:29.198Z",
           "builds": [
             {
               "date": "2025-01-08T16:00:19.754Z",
@@ -26,7 +26,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-18T16:53:32.257Z",
+          "latest-run": "2025-01-18T17:03:29.391Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -39,7 +39,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-18T16:53:32.257Z",
+          "latest-run": "2025-01-18T17:03:29.391Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -52,7 +52,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-01-18T16:53:32.257Z",
+    "latest-run": "2025-01-18T17:03:29.391Z",
     "version": "1.0.2"
   }
 }
