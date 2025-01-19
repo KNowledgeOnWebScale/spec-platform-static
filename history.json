@@ -3,7 +3,7 @@
     "a4ds-attempt-a": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-19T13:43:30.366Z",
+          "latest-run": "2025-01-19T13:53:32.711Z",
           "builds": [
             {
               "date": "2024-12-17T17:24:25.969Z",
@@ -12,7 +12,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-19T13:43:30.367Z",
+          "latest-run": "2025-01-19T13:53:32.712Z",
           "builds": [
             {
               "date": "2025-01-08T16:00:19.754Z",
@@ -26,7 +26,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-19T13:43:30.571Z",
+          "latest-run": "2025-01-19T13:53:33.534Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -35,16 +35,25 @@
             {
               "date": "2025-01-17T10:03:29.934Z",
               "path": "claims-network/all/74299a06b407ab5885659e053fb446d6e076a0fe"
+            },
+            {
+              "date": "2025-01-19T13:53:33.534Z",
+              "path": "claims-network/all/5ec73a70e66df5434158d632ea48094439d1f0e4"
             }
           ]
         },
         "latest": {
-          "latest-run": "2025-01-19T13:43:30.571Z",
+          "latest-run": "2025-01-19T13:53:33.547Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
               "path": "claims-network/latest",
               "source": "claims-network/all/74299a06b407ab5885659e053fb446d6e076a0fe"
+            },
+            {
+              "date": "2025-01-19T13:53:33.547Z",
+              "path": "claims-network/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/claims-network/all/5ec73a70e66df5434158d632ea48094439d1f0e4"
             }
           ]
         }
@@ -52,7 +61,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-01-19T13:43:30.571Z",
+    "latest-run": "2025-01-19T13:53:33.547Z",
     "version": "1.0.2"
   }
 }
