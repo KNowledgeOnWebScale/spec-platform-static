@@ -3,7 +3,7 @@
     "a4ds-attempt-a": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-20T14:03:32.891Z",
+          "latest-run": "2025-01-20T14:13:30.299Z",
           "builds": [
             {
               "date": "2024-12-17T17:24:25.969Z",
@@ -12,7 +12,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-20T14:03:32.892Z",
+          "latest-run": "2025-01-20T14:13:30.300Z",
           "builds": [
             {
               "date": "2025-01-08T16:00:19.754Z",
@@ -26,7 +26,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-20T14:03:33.084Z",
+          "latest-run": "2025-01-20T14:13:31.187Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -55,11 +55,15 @@
             {
               "date": "2025-01-20T13:33:32.305Z",
               "path": "claims-network/all/e725785242f6c8ef0036bffff02af3a6ba3e9d49"
+            },
+            {
+              "date": "2025-01-20T14:13:31.187Z",
+              "path": "claims-network/all/f0082b7f8dceb472f5bfa9b42cb445ade9d8b827"
             }
           ]
         },
         "latest": {
-          "latest-run": "2025-01-20T14:03:33.084Z",
+          "latest-run": "2025-01-20T14:13:31.200Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -90,6 +94,11 @@
               "date": "2025-01-20T13:33:32.317Z",
               "path": "claims-network/latest",
               "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/claims-network/all/e725785242f6c8ef0036bffff02af3a6ba3e9d49"
+            },
+            {
+              "date": "2025-01-20T14:13:31.200Z",
+              "path": "claims-network/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/claims-network/all/f0082b7f8dceb472f5bfa9b42cb445ade9d8b827"
             }
           ]
         }
@@ -98,7 +107,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-20T14:03:33.220Z",
+          "latest-run": "2025-01-20T14:13:31.363Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -107,7 +116,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-20T14:03:33.220Z",
+          "latest-run": "2025-01-20T14:13:31.363Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -120,7 +129,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-01-20T14:03:33.220Z",
+    "latest-run": "2025-01-20T14:13:31.363Z",
     "version": "1.0.2"
   }
 }
