@@ -3,7 +3,7 @@
     "a4ds-attempt-a": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-20T13:23:40.383Z",
+          "latest-run": "2025-01-20T13:33:31.442Z",
           "builds": [
             {
               "date": "2024-12-17T17:24:25.969Z",
@@ -12,7 +12,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-20T13:23:40.384Z",
+          "latest-run": "2025-01-20T13:33:31.443Z",
           "builds": [
             {
               "date": "2025-01-08T16:00:19.754Z",
@@ -26,7 +26,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-20T13:23:40.600Z",
+          "latest-run": "2025-01-20T13:33:32.305Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -51,11 +51,15 @@
             {
               "date": "2025-01-20T11:03:36.595Z",
               "path": "claims-network/all/57360e79d8b5dd56fa4a9591f69bbeb63c1db272"
+            },
+            {
+              "date": "2025-01-20T13:33:32.305Z",
+              "path": "claims-network/all/e725785242f6c8ef0036bffff02af3a6ba3e9d49"
             }
           ]
         },
         "latest": {
-          "latest-run": "2025-01-20T13:23:40.600Z",
+          "latest-run": "2025-01-20T13:33:32.317Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -81,6 +85,11 @@
               "date": "2025-01-20T11:03:36.607Z",
               "path": "claims-network/latest",
               "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/claims-network/all/57360e79d8b5dd56fa4a9591f69bbeb63c1db272"
+            },
+            {
+              "date": "2025-01-20T13:33:32.317Z",
+              "path": "claims-network/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/claims-network/all/e725785242f6c8ef0036bffff02af3a6ba3e9d49"
             }
           ]
         }
@@ -88,7 +97,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-01-20T13:23:40.600Z",
+    "latest-run": "2025-01-20T13:33:32.317Z",
     "version": "1.0.2"
   }
 }
