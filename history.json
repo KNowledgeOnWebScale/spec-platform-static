@@ -3,7 +3,7 @@
     "a4ds-attempt-a": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-21T15:53:30.550Z",
+          "latest-run": "2025-01-21T16:03:28.913Z",
           "builds": [
             {
               "date": "2024-12-17T17:24:25.969Z",
@@ -12,7 +12,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-21T15:53:30.551Z",
+          "latest-run": "2025-01-21T16:03:28.914Z",
           "builds": [
             {
               "date": "2025-01-08T16:00:19.754Z",
@@ -26,7 +26,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-21T15:53:30.765Z",
+          "latest-run": "2025-01-21T16:03:29.134Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -71,7 +71,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-21T15:53:30.765Z",
+          "latest-run": "2025-01-21T16:03:29.134Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -125,7 +125,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-21T15:53:30.937Z",
+          "latest-run": "2025-01-21T16:03:29.877Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -158,11 +158,15 @@
             {
               "date": "2025-01-21T13:13:35.183Z",
               "path": "ldes-server-implementation-guide-for-developers/all/3fd22b1ee50f206fb7d6c4a0eb187538f24658ac"
+            },
+            {
+              "date": "2025-01-21T16:03:29.877Z",
+              "path": "ldes-server-implementation-guide-for-developers/all/a62a1e71f2920778114fd35a15be98b0f43a1525"
             }
           ]
         },
         "latest": {
-          "latest-run": "2025-01-21T15:53:30.937Z",
+          "latest-run": "2025-01-21T16:03:29.883Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -203,6 +207,11 @@
               "date": "2025-01-21T13:13:35.187Z",
               "path": "ldes-server-implementation-guide-for-developers/latest",
               "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/ldes-server-implementation-guide-for-developers/all/3fd22b1ee50f206fb7d6c4a0eb187538f24658ac"
+            },
+            {
+              "date": "2025-01-21T16:03:29.883Z",
+              "path": "ldes-server-implementation-guide-for-developers/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/ldes-server-implementation-guide-for-developers/all/a62a1e71f2920778114fd35a15be98b0f43a1525"
             }
           ]
         }
@@ -210,7 +219,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-01-21T15:53:30.937Z",
+    "latest-run": "2025-01-21T16:03:29.883Z",
     "version": "1.0.2"
   }
 }
