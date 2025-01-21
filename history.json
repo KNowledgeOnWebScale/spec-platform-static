@@ -3,7 +3,7 @@
     "a4ds-attempt-a": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-21T13:43:33.874Z",
+          "latest-run": "2025-01-21T13:53:43.615Z",
           "builds": [
             {
               "date": "2024-12-17T17:24:25.969Z",
@@ -12,7 +12,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-21T13:43:33.875Z",
+          "latest-run": "2025-01-21T13:53:43.616Z",
           "builds": [
             {
               "date": "2025-01-08T16:00:19.754Z",
@@ -26,7 +26,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-21T13:43:34.078Z",
+          "latest-run": "2025-01-21T13:53:43.809Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -67,7 +67,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-21T13:43:34.079Z",
+          "latest-run": "2025-01-21T13:53:43.809Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -116,7 +116,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-01-21T13:43:34.243Z",
+          "latest-run": "2025-01-21T13:53:43.959Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -153,7 +153,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-01-21T13:43:34.244Z",
+          "latest-run": "2025-01-21T13:53:43.959Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -201,7 +201,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-01-21T13:43:34.244Z",
+    "latest-run": "2025-01-21T13:53:43.959Z",
     "version": "1.0.2"
   }
 }
