@@ -1489,8 +1489,8 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version c67c745b1, updated Fri Jan 17 14:27:28 2025 -0800" name="generator">
-  <link href="https://spec.knows.idlab.ugent.be/ldes-server-implementation-guide-for-developers/all/bd04eea098f08231eacbbe876d2d96d4d9c1fec6" rel="canonical">
-  <meta content="4c58f9907c88acbe267e530a23ca89cf3dc6ef2c" name="revision">
+  <link href="https://spec.knows.idlab.ugent.be/ldes-server-implementation-guide-for-developers/all/34731f35b7d253facc98f8f7ca4466bb119a7bbd" rel="canonical">
+  <meta content="d566637549cbd5d2858e5d91ac31230fa6211c97" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2143,7 +2143,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Previous Versions:
-     <dd><a href="https://spec.knows.idlab.ugent.be/ldes-server-implementation-guide-for-developers/all/34731f35b7d253facc98f8f7ca4466bb119a7bbd" rel="prev">https://spec.knows.idlab.ugent.be/ldes-server-implementation-guide-for-developers/all/34731f35b7d253facc98f8f7ca4466bb119a7bbd</a>
+     <dd><a href="https://spec.knows.idlab.ugent.be/ldes-server-implementation-guide-for-developers/all/4c58f9907c88acbe267e530a23ca89cf3dc6ef2c" rel="prev">https://spec.knows.idlab.ugent.be/ldes-server-implementation-guide-for-developers/all/4c58f9907c88acbe267e530a23ca89cf3dc6ef2c</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Gerald Haesendonck</span> (<a class="p-org org" href="http://idlab.ugent.be/">Ghent University - imec</a>)
     </dl>
@@ -2428,8 +2428,6 @@ The followin example shows an LDES containing address changes:</p>
 so clients don’t need to process potentially a lot of data,
 and in the context of time series older fragments are unlikely to change
 and can easily be cached when serving over HTTP.
-Fragmentation can be seen as adding a view representing a search tree,
-where nodes are connected through relations.
 LDES relies on the TREE specification (<a data-link-type="biblio" href="#biblio-tree-spec" title="The TREE hypermedia specification">[tree-spec]</a>) for fragmentation
 supporting many options.
 In this document we pick time-based fragmentation because that’s
@@ -2439,7 +2437,7 @@ a reading gets added.</p>
    <p>In our weights example, we will make a fragment per month of data.
 This results in a tree structure which might look like this:</p>
    <div class="example" id="ex_tree_structure">
-    <a class="self-link" href="#ex_tree_structure"></a> Tree representation of a possible fragmentation per year with a
+    <a class="self-link" href="#ex_tree_structure"></a> Tree representtion of a possible fragmentation per year with a
 sub-fragmentation per month. 
 <pre>weights
 └── 2025
@@ -2451,8 +2449,7 @@ sub-fragmentation per month.
 </pre>
    </div>
    <p>The directory structure is used here because it maps to the paths in the
-identifiers, while at the same time showing the search tree.
-For example, the first reading has IRI <code>2025/01/weight1</code> (relative to the base IRI).</p>
+identifiers. For example, the first reading has IRI <code>2025/01/weight1</code> (relative to the base IRI).</p>
    <p>To get fragmentation, we replace the member listing (<code>tree:member</code>)  in
 the <code>ldes:eventStream</code> instance with a <code>tree:view</code>.
 This view points - in this case - to the root node in the tree structure
