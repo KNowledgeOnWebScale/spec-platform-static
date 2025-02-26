@@ -1,0 +1,18 @@
+{
+    "@context": "https://www.w3.org/ns/activitystreams",
+    "id": "urn:uuid:ef99b36a-5896-46ee-b164-2da1467f6a35",
+    "type": "Announce",
+    "published": "2025-02-02T06:49:29.000Z",
+    "actor": {
+        "id": "https://bots.surf.nl/profile/card#me",
+        "name": "Zotero Service Provider",
+        "inbox": "https://bots.surf.nl/inbox/",
+        "type": "Service"
+    },
+    "context": "https://parliament.nl/questions/2025-21-121291",
+    "inReplyTo": "urn:uuid:75806b42-41f5-46fb-8519-6e964c93c19e",
+    "object": {
+        "id": "https://bots.surf.nl/result/12712-128219.jsonld",
+        "type": "Document"
+    }
+}
