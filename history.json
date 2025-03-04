@@ -3,7 +3,7 @@
     "a4ds-attempt-a": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-03-04T16:03:49.779Z",
+          "latest-run": "2025-03-04T16:13:47.792Z",
           "builds": [
             {
               "date": "2024-12-17T17:24:25.969Z",
@@ -16,11 +16,15 @@
             {
               "date": "2025-02-06T15:43:40.908Z",
               "path": "A4DS/all/d0b291fa5c1f117c8d086b3442677952311c4176"
+            },
+            {
+              "date": "2025-03-04T16:13:47.791Z",
+              "path": "A4DS/all/4822132254662305a3d7048d741e6b8d16c1412c"
             }
           ]
         },
         "latest": {
-          "latest-run": "2025-03-04T16:03:49.780Z",
+          "latest-run": "2025-03-04T16:13:47.796Z",
           "builds": [
             {
               "date": "2025-01-08T16:00:19.754Z",
@@ -31,6 +35,11 @@
               "date": "2025-02-06T15:43:40.912Z",
               "path": "A4DS/latest",
               "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/A4DS/all/d0b291fa5c1f117c8d086b3442677952311c4176"
+            },
+            {
+              "date": "2025-03-04T16:13:47.796Z",
+              "path": "A4DS/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/A4DS/all/4822132254662305a3d7048d741e6b8d16c1412c"
             }
           ]
         }
@@ -39,7 +48,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-03-04T16:03:50.007Z",
+          "latest-run": "2025-03-04T16:13:47.989Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -104,7 +113,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-03-04T16:03:50.008Z",
+          "latest-run": "2025-03-04T16:13:47.989Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -178,7 +187,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-03-04T16:03:50.145Z",
+          "latest-run": "2025-03-04T16:13:48.375Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -247,7 +256,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-03-04T16:03:50.145Z",
+          "latest-run": "2025-03-04T16:13:48.375Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -330,7 +339,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-03-04T16:03:50.145Z",
+    "latest-run": "2025-03-04T16:13:48.375Z",
     "version": "1.0.5"
   }
 }
