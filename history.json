@@ -62,7 +62,7 @@
           ]
         },
         "level1-latest": {
-          "latest-run": "2025-03-28T14:34:13.939Z",
+          "latest-run": "2025-03-28T14:44:18.643Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.930Z",
@@ -72,7 +72,7 @@
           ]
         },
         "level1-commits": {
-          "latest-run": "2025-03-28T14:34:13.937Z",
+          "latest-run": "2025-03-28T14:44:18.641Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.418Z",
@@ -81,7 +81,7 @@
           ]
         },
         "level0-latest": {
-          "latest-run": "2025-03-28T14:34:13.938Z",
+          "latest-run": "2025-03-28T14:44:18.643Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.927Z",
@@ -94,7 +94,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-03-28T14:34:14.205Z",
+          "latest-run": "2025-03-28T14:44:18.872Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -159,7 +159,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-03-28T14:34:14.206Z",
+          "latest-run": "2025-03-28T14:44:18.872Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -233,7 +233,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-03-28T14:34:14.611Z",
+          "latest-run": "2025-03-28T14:44:19.353Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -302,7 +302,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-03-28T14:34:14.611Z",
+          "latest-run": "2025-03-28T14:44:19.353Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -386,7 +386,7 @@
     "force": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-03-28T14:34:14.388Z",
+          "latest-run": "2025-03-28T14:44:19.068Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.871Z",
@@ -403,7 +403,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-03-28T14:34:14.388Z",
+          "latest-run": "2025-03-28T14:44:19.068Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.874Z",
@@ -426,7 +426,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-03-28T14:34:14.611Z",
+    "latest-run": "2025-03-28T14:44:19.353Z",
     "version": "1.0.6"
   }
 }
