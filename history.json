@@ -62,7 +62,7 @@
           ]
         },
         "level1-latest": {
-          "latest-run": "2025-04-04T15:14:28.772Z",
+          "latest-run": "2025-04-04T15:24:34.085Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.930Z",
@@ -72,7 +72,7 @@
           ]
         },
         "level1-commits": {
-          "latest-run": "2025-04-04T15:14:28.770Z",
+          "latest-run": "2025-04-04T15:24:34.083Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.418Z",
@@ -81,7 +81,7 @@
           ]
         },
         "level0-latest": {
-          "latest-run": "2025-04-04T15:14:28.771Z",
+          "latest-run": "2025-04-04T15:24:34.084Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.927Z",
@@ -94,7 +94,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-04-04T15:14:28.998Z",
+          "latest-run": "2025-04-04T15:24:34.312Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -159,7 +159,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-04-04T15:14:28.998Z",
+          "latest-run": "2025-04-04T15:24:34.312Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -233,7 +233,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-04-04T15:14:29.391Z",
+          "latest-run": "2025-04-04T15:24:34.681Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -302,7 +302,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-04-04T15:14:29.391Z",
+          "latest-run": "2025-04-04T15:24:34.682Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -386,7 +386,7 @@
     "force": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-04-04T15:14:29.247Z",
+          "latest-run": "2025-04-04T15:24:34.511Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.871Z",
@@ -415,7 +415,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-04-04T15:14:29.247Z",
+          "latest-run": "2025-04-04T15:24:34.512Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.874Z",
@@ -454,7 +454,7 @@
     "trustflows": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-04-04T15:14:29.594Z",
+          "latest-run": "2025-04-04T15:24:36.090Z",
           "builds": [
             {
               "date": "2025-03-31T15:45:53.461Z",
@@ -471,11 +471,19 @@
             {
               "date": "2025-04-04T10:14:36.381Z",
               "path": "trustflows/all/b7e150183823b7f0812c5fd00cda58c32604ee0a"
+            },
+            {
+              "date": "2025-04-04T15:24:35.511Z",
+              "path": "trustflows/all/be6cbda49bd73db7d68e81f380370cc49d66edb1"
+            },
+            {
+              "date": "2025-04-04T15:24:36.090Z",
+              "path": "trustflows/all/e45c02bd3711f5734eeb75548ff37a70f57c465e"
             }
           ]
         },
         "latest": {
-          "latest-run": "2025-04-04T15:14:29.595Z",
+          "latest-run": "2025-04-04T15:24:36.097Z",
           "builds": [
             {
               "date": "2025-03-31T15:45:53.464Z",
@@ -496,6 +504,11 @@
               "date": "2025-04-04T10:14:36.389Z",
               "path": "trustflows/latest",
               "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/trustflows/all/b7e150183823b7f0812c5fd00cda58c32604ee0a"
+            },
+            {
+              "date": "2025-04-04T15:24:36.097Z",
+              "path": "trustflows/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/trustflows/all/e45c02bd3711f5734eeb75548ff37a70f57c465e"
             }
           ]
         }
@@ -503,7 +516,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-04-04T15:14:29.595Z",
+    "latest-run": "2025-04-04T15:24:36.097Z",
     "version": "1.0.6"
   }
 }
