@@ -62,7 +62,7 @@
           ]
         },
         "level1-latest": {
-          "latest-run": "2025-04-19T23:24:57.465Z",
+          "latest-run": "2025-04-19T23:34:51.580Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.930Z",
@@ -72,7 +72,7 @@
           ]
         },
         "level1-commits": {
-          "latest-run": "2025-04-19T23:24:57.456Z",
+          "latest-run": "2025-04-19T23:34:51.578Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.418Z",
@@ -81,7 +81,7 @@
           ]
         },
         "level0-latest": {
-          "latest-run": "2025-04-19T23:24:57.463Z",
+          "latest-run": "2025-04-19T23:34:51.579Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.927Z",
@@ -94,7 +94,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-04-19T23:24:57.703Z",
+          "latest-run": "2025-04-19T23:34:51.840Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -159,7 +159,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-04-19T23:24:57.703Z",
+          "latest-run": "2025-04-19T23:34:51.840Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -233,7 +233,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-04-19T23:24:58.315Z",
+          "latest-run": "2025-04-19T23:34:52.180Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -302,7 +302,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-04-19T23:24:58.316Z",
+          "latest-run": "2025-04-19T23:34:52.180Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -386,7 +386,7 @@
     "force": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-04-19T23:24:58.150Z",
+          "latest-run": "2025-04-19T23:34:52.022Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.871Z",
@@ -415,7 +415,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-04-19T23:24:58.150Z",
+          "latest-run": "2025-04-19T23:34:52.022Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.874Z",
@@ -454,7 +454,7 @@
     "trustflows": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-04-19T23:24:58.505Z",
+          "latest-run": "2025-04-19T23:34:52.362Z",
           "builds": [
             {
               "date": "2025-03-31T15:45:53.461Z",
@@ -483,7 +483,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-04-19T23:24:58.505Z",
+          "latest-run": "2025-04-19T23:34:52.362Z",
           "builds": [
             {
               "date": "2025-03-31T15:45:53.464Z",
@@ -516,7 +516,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-04-19T23:24:58.505Z",
+    "latest-run": "2025-04-19T23:34:52.362Z",
     "version": "1.0.6"
   }
 }
