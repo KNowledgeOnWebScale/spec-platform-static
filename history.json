@@ -62,7 +62,7 @@
           ]
         },
         "level1-latest": {
-          "latest-run": "2025-05-13T10:55:54.314Z",
+          "latest-run": "2025-05-13T11:07:03.024Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.930Z",
@@ -72,7 +72,7 @@
           ]
         },
         "level1-commits": {
-          "latest-run": "2025-05-13T10:55:54.313Z",
+          "latest-run": "2025-05-13T11:07:03.014Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.418Z",
@@ -81,7 +81,7 @@
           ]
         },
         "level0-latest": {
-          "latest-run": "2025-05-13T10:55:54.313Z",
+          "latest-run": "2025-05-13T11:07:03.020Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.927Z",
@@ -94,7 +94,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-13T10:55:54.567Z",
+          "latest-run": "2025-05-13T11:07:03.293Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -159,7 +159,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-13T10:55:54.567Z",
+          "latest-run": "2025-05-13T11:07:03.293Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -233,7 +233,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-13T10:55:54.948Z",
+          "latest-run": "2025-05-13T11:07:03.709Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -302,7 +302,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-13T10:55:54.948Z",
+          "latest-run": "2025-05-13T11:07:03.709Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -386,7 +386,7 @@
     "force": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-13T10:55:54.778Z",
+          "latest-run": "2025-05-13T11:07:03.496Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.871Z",
@@ -415,7 +415,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-13T10:55:54.778Z",
+          "latest-run": "2025-05-13T11:07:03.496Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.874Z",
@@ -454,7 +454,7 @@
     "trustflows": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-13T10:55:55.134Z",
+          "latest-run": "2025-05-13T11:07:07.107Z",
           "builds": [
             {
               "date": "2025-03-31T15:45:53.461Z",
@@ -483,7 +483,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-13T10:55:55.134Z",
+          "latest-run": "2025-05-13T11:07:07.107Z",
           "builds": [
             {
               "date": "2025-03-31T15:45:53.464Z",
@@ -513,10 +513,79 @@
           ]
         }
       }
+    },
+    "odrl3proposal": {
+      "publications": {
+        "all-commits": {
+          "latest-run": "2025-05-13T11:07:04.789Z",
+          "builds": [
+            {
+              "date": "2025-05-13T11:07:04.789Z",
+              "path": "open-digital-rights-language-odrl-30-proposal/all/76eb59b38dd5bfcf042d0b82fde444fe8e505d1a"
+            }
+          ]
+        },
+        "latest": {
+          "latest-run": "2025-05-13T11:07:04.795Z",
+          "builds": [
+            {
+              "date": "2025-05-13T11:07:04.795Z",
+              "path": "open-digital-rights-language-odrl-30-proposal/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/open-digital-rights-language-odrl-30-proposal/all/76eb59b38dd5bfcf042d0b82fde444fe8e505d1a"
+            }
+          ]
+        }
+      }
+    },
+    "policy-instantiation": {
+      "publications": {
+        "all-commits": {
+          "latest-run": "2025-05-13T11:07:05.764Z",
+          "builds": [
+            {
+              "date": "2025-05-13T11:07:05.764Z",
+              "path": "odrl-policy-agreement-instantiation/all/e8717caf69a5a5e73c9de7eed88f8e9d2ffb1854"
+            }
+          ]
+        },
+        "latest": {
+          "latest-run": "2025-05-13T11:07:05.771Z",
+          "builds": [
+            {
+              "date": "2025-05-13T11:07:05.771Z",
+              "path": "odrl-policy-agreement-instantiation/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/odrl-policy-agreement-instantiation/all/e8717caf69a5a5e73c9de7eed88f8e9d2ffb1854"
+            }
+          ]
+        }
+      }
+    },
+    "sotw": {
+      "publications": {
+        "all-commits": {
+          "latest-run": "2025-05-13T11:07:06.895Z",
+          "builds": [
+            {
+              "date": "2025-05-13T11:07:06.895Z",
+              "path": "state-of-the-world-for-open-digital-rights-language-odrl-evaluator/all/32390f08404b1f8d630fb29fafa2a1100dae577e"
+            }
+          ]
+        },
+        "latest": {
+          "latest-run": "2025-05-13T11:07:06.903Z",
+          "builds": [
+            {
+              "date": "2025-05-13T11:07:06.903Z",
+              "path": "state-of-the-world-for-open-digital-rights-language-odrl-evaluator/latest",
+              "source": "/builds/KNoWS/spec-platform/pipeline/tmp/storage-repo/dist/state-of-the-world-for-open-digital-rights-language-odrl-evaluator/all/32390f08404b1f8d630fb29fafa2a1100dae577e"
+            }
+          ]
+        }
+      }
     }
   },
   "orchestrator": {
-    "latest-run": "2025-05-13T10:55:55.134Z",
+    "latest-run": "2025-05-13T11:07:07.107Z",
     "version": "1.0.6"
   }
 }
