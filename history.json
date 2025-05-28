@@ -62,7 +62,7 @@
           ]
         },
         "level1-latest": {
-          "latest-run": "2025-05-28T08:56:31.048Z",
+          "latest-run": "2025-05-28T09:06:57.376Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.930Z",
@@ -97,7 +97,7 @@
           ]
         },
         "level1-commits": {
-          "latest-run": "2025-05-28T08:56:31.046Z",
+          "latest-run": "2025-05-28T09:06:57.373Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.418Z",
@@ -134,7 +134,7 @@
           ]
         },
         "level0-latest": {
-          "latest-run": "2025-05-28T08:56:31.047Z",
+          "latest-run": "2025-05-28T09:06:57.374Z",
           "builds": [
             {
               "date": "2025-03-11T15:44:54.927Z",
@@ -147,7 +147,7 @@
     "claims-network": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-28T08:56:31.315Z",
+          "latest-run": "2025-05-28T09:06:57.621Z",
           "builds": [
             {
               "date": "2025-01-16T15:14:46.549Z",
@@ -212,7 +212,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-28T08:56:31.315Z",
+          "latest-run": "2025-05-28T09:06:57.621Z",
           "builds": [
             {
               "date": "2025-01-17T12:10:16.837Z",
@@ -286,7 +286,7 @@
     "ldes-server-for-developers": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-28T08:56:31.718Z",
+          "latest-run": "2025-05-28T09:06:57.989Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.769Z",
@@ -355,7 +355,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-28T08:56:31.718Z",
+          "latest-run": "2025-05-28T09:06:57.989Z",
           "builds": [
             {
               "date": "2025-01-20T13:42:57.772Z",
@@ -439,7 +439,7 @@
     "force": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-28T08:56:31.528Z",
+          "latest-run": "2025-05-28T09:06:57.827Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.871Z",
@@ -468,7 +468,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-28T08:56:31.528Z",
+          "latest-run": "2025-05-28T09:06:57.827Z",
           "builds": [
             {
               "date": "2025-03-19T14:29:20.874Z",
@@ -507,7 +507,7 @@
     "trustflows": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-28T08:56:32.561Z",
+          "latest-run": "2025-05-28T09:06:58.756Z",
           "builds": [
             {
               "date": "2025-03-31T15:45:53.461Z",
@@ -536,7 +536,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-28T08:56:32.561Z",
+          "latest-run": "2025-05-28T09:06:58.756Z",
           "builds": [
             {
               "date": "2025-03-31T15:45:53.464Z",
@@ -570,7 +570,7 @@
     "odrl3proposal": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-28T08:56:31.922Z",
+          "latest-run": "2025-05-28T09:06:58.189Z",
           "builds": [
             {
               "date": "2025-05-13T11:07:04.789Z",
@@ -583,7 +583,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-28T08:56:31.922Z",
+          "latest-run": "2025-05-28T09:06:58.189Z",
           "builds": [
             {
               "date": "2025-05-13T11:07:04.795Z",
@@ -602,7 +602,7 @@
     "policy-instantiation": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-28T08:56:32.109Z",
+          "latest-run": "2025-05-28T09:06:58.374Z",
           "builds": [
             {
               "date": "2025-05-13T11:07:05.764Z",
@@ -615,7 +615,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-28T08:56:32.109Z",
+          "latest-run": "2025-05-28T09:06:58.374Z",
           "builds": [
             {
               "date": "2025-05-13T11:07:05.771Z",
@@ -634,7 +634,7 @@
     "sotw": {
       "publications": {
         "all-commits": {
-          "latest-run": "2025-05-28T08:56:32.323Z",
+          "latest-run": "2025-05-28T09:06:58.563Z",
           "builds": [
             {
               "date": "2025-05-13T11:07:06.895Z",
@@ -655,7 +655,7 @@
           ]
         },
         "latest": {
-          "latest-run": "2025-05-28T08:56:32.323Z",
+          "latest-run": "2025-05-28T09:06:58.563Z",
           "builds": [
             {
               "date": "2025-05-13T11:07:06.903Z",
@@ -683,7 +683,7 @@
     }
   },
   "orchestrator": {
-    "latest-run": "2025-05-28T08:56:32.561Z",
+    "latest-run": "2025-05-28T09:06:58.756Z",
     "version": "1.0.6"
   }
 }
