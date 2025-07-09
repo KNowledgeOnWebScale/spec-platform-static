@@ -1488,8 +1488,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version f3fd50cc3, updated Tue Mar 18 14:19:40 2025 -0700" name="generator">
+  <meta content="Bikeshed version b25686b9f, updated Fri Mar 14 14:15:20 2025 -0700" name="generator">
   <link href="https://w3id.org/force/odrl3proposal" rel="canonical">
+  <meta content="76eb59b38dd5bfcf042d0b82fde444fe8e505d1a" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2014,13 +2015,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://knows.idlab.ugent.be/"> <img alt="KNoWS" height="48" src="logo.png"> </a></p>
    <h1 class="p-name no-ref" id="title">Open Digital Rights Language (ODRL) 3.0 Proposal</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-07-09">9 July 2025</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-05-27">27 May 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3id.org/force/odrl3proposal">https://w3id.org/force/odrl3proposal</a>
      <dt>Previous Versions:
-     <dd><a href="https://spec.knows.idlab.ugent.be/odrl3proposal/all/2dd94044680225263cfca33cfbde2d89d07c5f0b" rel="prev">https://spec.knows.idlab.ugent.be/odrl3proposal/all/2dd94044680225263cfca33cfbde2d89d07c5f0b</a>
+     <dd><a href="https://spec.knows.idlab.ugent.be/odrl3proposal/all/0ee18cd42d07cbccd07a740f1e9db78b16e2532a" rel="prev">https://spec.knows.idlab.ugent.be/odrl3proposal/all/0ee18cd42d07cbccd07a740f1e9db78b16e2532a</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/KNowledgeOnWebScale/odrl3proposal/issues/">GitHub</a>
      <dd><a href="#issues-index">Inline In Spec</a>
@@ -2071,9 +2072,6 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        <ol class="toc">
         <li><a href="#relation"><span class="secno">4.1.1</span> <span class="content">Relation</span></a>
         <li><a href="#scope"><span class="secno">4.1.2</span> <span class="content">Scope</span></a>
-        <li><a href="#operandReference"><span class="secno">4.1.3</span> <span class="content">Operand Rerefence</span></a>
-        <li><a href="#path"><span class="secno">4.1.4</span> <span class="content">Path</span></a>
-        <li><a href="#reference"><span class="secno">4.1.5</span> <span class="content">Reference</span></a>
        </ol>
       <li><a href="#changing-terms"><span class="secno">4.2</span> <span class="content">Changing existing terms of the ODRL vocabulary</span></a>
      </ol>
@@ -2189,72 +2187,6 @@ need to be materialised using the <code>ldp:contains</code> relation, if</p>
      <tr>
       <th>Range
       <td><a href="http://www.w3.org/ns/odrl/2/Action">odrl:Action</a>
-   </table>
-   <h4 class="heading settled" data-level="4.1.3" id="operandReference"><span class="secno">4.1.3. </span><span class="content">Operand Rerefence</span><a class="self-link" href="#operandReference"></a></h4>
-   <table class="def">
-    <tbody>
-     <tr>
-      <th>IRI
-      <td><a href="https://w3id.org/force/odrl3proposal#OperandReference">odrl3proposal:OperandReference</a>
-     <tr>
-      <th>Label
-      <td>Operand Rerefence
-     <tr>
-      <th>Type
-      <td><a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a>, <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
-     <tr>
-      <th>Definition
-      <td>The <code>Operand Reference</code> class is used to to represent a Right Operand Value that has to be dynamically be materialized based on its properties.
-   </table>
-   <h4 class="heading settled" data-level="4.1.4" id="path"><span class="secno">4.1.4. </span><span class="content">Path</span><a class="self-link" href="#path"></a></h4>
-   <table class="def">
-    <tbody>
-     <tr>
-      <th>IRI
-      <td><a href="https://w3id.org/force/odrl3proposal#path">odrl3proposal:path</a>
-     <tr>
-      <th>Label
-      <td>path
-     <tr>
-      <th>Type
-      <td><a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>, <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a>
-     <tr>
-      <th>Definition
-      <td>The <code>path</code> property indicates the SHACL Property Path which describes the path from a specific focus node to a value it describes.
-     <tr>
-      <th>Domain
-      <td><a href="https://w3id.org/force/odrl3proposal#OperandReference">odrl3proposal:OperandReference</a>
-     <tr>
-      <th>Range
-      <td><a href="http://www.w3.org/ns/shacl#path">sh:path</a>
-     <tr>
-      <th>Note
-      <td>There is an extra constraint to the SHACL Property Path: It MUST only resolve to one value.
-   </table>
-   <h4 class="heading settled" data-level="4.1.5" id="reference"><span class="secno">4.1.5. </span><span class="content">Reference</span><a class="self-link" href="#reference"></a></h4>
-   <table class="def">
-    <tbody>
-     <tr>
-      <th>IRI
-      <td><a href="https://w3id.org/force/odrl3proposal#reference">odrl3proposal:reference</a>
-     <tr>
-      <th>Label
-      <td>reference
-     <tr>
-      <th>Type
-      <td><a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>, <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a>
-     <tr>
-      <th>Definition
-      <td>The <code>reference</code> property indicates external source that has to be dereferenced.
-     <tr>
-      <th>Domain
-      <td><a href="https://w3id.org/force/odrl3proposal#OperandReference">odrl3proposal:OperandReference</a>
-     <tr>
-      <th>Range
-      <td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a>
-     <tr>
-      <th>Note
-      <td>The source MUST have a valid RDF presentation.
    </table>
    <h3 class="heading settled" data-level="4.2" id="changing-terms"><span class="secno">4.2. </span><span class="content">Changing existing terms of the ODRL vocabulary</span><a class="self-link" href="#changing-terms"></a></h3>
    <div class="issue" id="issue-5c288c7e">
