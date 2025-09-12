@@ -1488,9 +1488,8 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version b25686b9f, updated Fri Mar 14 14:15:20 2025 -0700" name="generator">
+  <meta content="Bikeshed version f3fd50cc3, updated Tue Mar 18 14:19:40 2025 -0700" name="generator">
   <link href="https://w3id.org/trustenvelope" rel="canonical">
-  <meta content="9293a564c4332cdaf7fef4d1db4edecb73e6a15a" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2145,7 +2144,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <dt>This version:
      <dd><a class="u-url" href="https://w3id.org/trustenvelope">https://w3id.org/trustenvelope</a>
      <dt>Previous Versions:
-     <dd><a href="https://spec.knows.idlab.ugent.be/trustenvelope/all/e15d5cdf8f05c366a8237974fb4b7530e1c2a243" rel="prev">https://spec.knows.idlab.ugent.be/trustenvelope/all/e15d5cdf8f05c366a8237974fb4b7530e1c2a243</a>
+     <dd><a href="https://spec.knows.idlab.ugent.be/trustenvelope/all/9ca12022c1889247bd45cdc39b29cc7a73b59a02" rel="prev">https://spec.knows.idlab.ugent.be/trustenvelope/all/9ca12022c1889247bd45cdc39b29cc7a73b59a02</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/KNowledgeOnWebScale/TrustEnvelope/issues/">GitHub</a>
      <dt class="editor">Editors:
@@ -2203,7 +2202,6 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ol>
     <li><a href="#legal"><span class="secno">6</span> <span class="content">Legal Considerations</span></a>
     <li><a href="#namespaces"><span class="secno">7</span> <span class="content">Namespaces</span></a>
-    <li><a href="#orsd"><span class="secno">8</span> <span class="content">Ontology Requirement Specification Document</span></a>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -2249,9 +2247,6 @@ Let’s not replicate that! the digital world doesn’t have that constraint.
     <li data-md>
      <p><strong>Accountability</strong>: Transparency in both data verification and usage is essential. All parties must be able to audit the lifecycle of the data and demonstrate compliance when required.</p>
    </ul>
-   <p>These requirements are consolidated in an <a href="#orsd">Ontology Requirement Specification Document</a>,
-including the derived competency questions,
-as required by the <a href="https://lot.linkeddata.es">Linked Open Terms (LOT)</a> methodology for the the development of ontologies and vocabularies.</p>
    <h2 class="heading settled" data-level="3" id="model"><span class="secno">3. </span><span class="content">Model</span><a class="self-link" href="#model"></a></h2>
    <figure id="trust-envelope-model">
      <img height="241" src="./img/trust-envelopes-model.png" width="761"> 
@@ -2735,55 +2730,13 @@ and possibly held as proof in judgments for the later case.</p>
 <pre class="language-turtle highlight"><c- k>@prefix</c-> <c- nn>dcterms:</c-> <c- g>&lt;http://purl.org/dc/terms/></c-><c- p>.</c->
 <c- k>@prefix</c-> <c- nn>dpv:</c->     <c- g>&lt;http://www.w3.org/ns/dpv#></c-><c- p>.</c->
 <c- k>@prefix</c-> <c- nn>ex:</c->      <c- g>&lt;http://example.org/></c-><c- p>.</c->
-<c- k>@prefix</c-> <c- nn>odrl:</c->    <c- g>&lt;http://www.w3.org/ns/odrl/2/></c-><c- p>.</c->
+<c- nn>geo</c-><c- p>:</c->><c- p>.</c-><c- k>@prefix</c-> <c- nn>odrl:</c->    <c- g>&lt;http://www.w3.org/ns/odrl/2/></c-><c- p>.</c->
 <c- k>@prefix</c-> <c- nn>rdf:</c->     <c- g>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#></c-><c- p>.</c->
 <c- k>@prefix</c-> <c- nn>sosa:</c->    <c- g>&lt;http://www.w3.org/ns/sosa/></c-><c- p>.</c->
 <c- k>@prefix</c-> <c- nn>ssn:</c->     <c- g>&lt;http://www.w3.org/ns/ssn/></c-><c- p>.</c->
 <c- k>@prefix</c-> <c- nn>te:</c->      <c- g>&lt;https://w3id.org/trustenvelope#></c-><c- p>.</c->
 <c- k>@prefix</c-> <c- nn>xsd:</c->     <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c-><c- p>.</c->
 </pre>
-   <h2 class="heading settled" data-level="8" id="orsd"><span class="secno">8. </span><span class="content">Ontology Requirement Specification Document</span><a class="self-link" href="#orsd"></a></h2>
-   <table class="center">
-    <tbody>
-     <tr>
-      <th colspan="2" style="background-color: #444; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> Trust Envelope specification 
-     <tr>
-      <th colspan="2" style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> Purpose 
-     <tr>
-      <td colspan="2" style="text-align: justify; text-justify: inter-word; padding-left: 10px; padding-right: 10px; font-size: smaller; border: 3px solid #444;"> The purpose of this specification is to support the modelling of Trust Envelopes 
-    as unique data documents that associate a data unit with context specific information about its history and destiny. 
-     <tr>
-      <th colspan="2" style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> Scope 
-     <tr>
-      <td colspan="2" style="text-align: justify; text-justify: inter-word; padding-left: 10px; padding-right: 10px; font-size: smaller; border: 3px solid #444;"> The scope of this specification is limited to the reusage of existing terms from established standards and 
-    to the definition of new ones, that will serve one of these purposes:
-    (i) define entity roles related to the origin and usage conditions of a data unit,
-    (ii) define clear usage control policies,
-    (iii) declare provenance information about the data unit, and 
-    (iv) assist with regulatory compliance. 
-     <tr>
-      <th colspan="2" style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> Implementation Language 
-     <tr>
-      <td colspan="2" style="text-align: justify; text-justify: inter-word; padding-left: 10px; padding-right: 10px; font-size: smaller; border: 3px solid #444;"> RDF, RDFS 
-     <tr>
-      <th colspan="2" style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> Intended End-Users 
-     <tr>
-      <td colspan="2" style="text-align: justify; text-justify: inter-word; padding-left: 10px; padding-right: 10px; font-size: smaller; border: 3px solid #444;"> Developers and users of data sharing ecosystems 
-     <tr>
-      <th colspan="2" style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> Ontology Requirements 
-     <tr>
-      <th colspan="2" style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> Non-Functional Requirements 
-     <tr>
-      <td colspan="2" style="text-align: justify; text-justify: inter-word; padding-left: 10px; padding-right: 10px; font-size: smaller; border: 3px solid #444;"> NFR 1. The ontology shall be published online with standard documentation. 
-     <tr>
-      <th colspan="2" style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> Functional Requirements: Groups of Competency Questions 
-     <tr>
-      <th style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> CQG1. Related to trust envelopes components 
-      <th style="background-color: #aaa; color: white; font-size: smaller; text-align: center; border: 3px solid #444;"> CQG2. Related to regulatory compliance 
-     <tr>
-      <td style="text-align: justify; text-justify: inter-word; padding-left: 10px; padding-right: 10px; font-size: smaller; border: 3px solid #444;"> CQ1. Who are the entities to which the data is related?<br> CQ2. Who are the entities involved in the data exchange?<br> CQ3. Who are the entities that have rights over the data?<br> CQ4. Which are the conditions for using the data?<br> CQ5. In which context was the data generated? 
-      <td style="text-align: justify; text-justify: inter-word; padding-left: 10px; padding-right: 10px; font-size: smaller; border: 3px solid #444;"> CQ6. Which obligations and requirements need to be fulfilled to be legally compliant?<br> CQ7. What is the legal identification of the involved entities? 
-   </table>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
