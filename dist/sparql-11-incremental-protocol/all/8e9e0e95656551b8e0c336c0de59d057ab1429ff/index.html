@@ -1489,8 +1489,8 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version 3f621ba99, updated Mon Jul 28 15:38:36 2025 -0700" name="generator">
-  <link href="https://spec.knows.idlab.ugent.be/sparql-11-incremental-protocol/all/9692383efb39edcd03ea019e3f8c9a050890a74b" rel="canonical">
-  <meta content="080a43b178fe55b05ee8a6c5c4d44d2fcd669fc7" name="revision">
+  <link href="https://spec.knows.idlab.ugent.be/sparql-11-incremental-protocol/all/8e9e0e95656551b8e0c336c0de59d057ab1429ff" rel="canonical">
+  <meta content="8a32e50f46fae888f00a29d893e51e659847a1da" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -2047,127 +2047,6 @@ a.self-link::before            { content: "¶"; }
 .heading > a.self-link::before { content: "§"; }
 dfn > a.self-link::before      { content: "#"; }
 </style>
-<style>/* Boilerplate: style-syntax-highlighting */
-code.highlight { padding: .1em; border-radius: .3em; }
-pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-
-.highlight:not(.idl) { background: rgba(0, 0, 0, .03); }
-c-[a] { color: #990055 } /* Keyword.Declaration */
-c-[b] { color: #990055 } /* Keyword.Type */
-c-[c] { color: #708090 } /* Comment */
-c-[d] { color: #708090 } /* Comment.Multiline */
-c-[e] { color: #0077aa } /* Name.Attribute */
-c-[f] { color: #669900 } /* Name.Tag */
-c-[g] { color: #222222 } /* Name.Variable */
-c-[k] { color: #990055 } /* Keyword */
-c-[l] { color: #000000 } /* Literal */
-c-[m] { color: #000000 } /* Literal.Number */
-c-[n] { color: #0077aa } /* Name */
-c-[o] { color: #999999 } /* Operator */
-c-[p] { color: #999999 } /* Punctuation */
-c-[s] { color: #a67f59 } /* Literal.String */
-c-[t] { color: #a67f59 } /* Literal.String.Single */
-c-[u] { color: #a67f59 } /* Literal.String.Double */
-c-[cp] { color: #708090 } /* Comment.Preproc */
-c-[c1] { color: #708090 } /* Comment.Single */
-c-[cs] { color: #708090 } /* Comment.Special */
-c-[kc] { color: #990055 } /* Keyword.Constant */
-c-[kn] { color: #990055 } /* Keyword.Namespace */
-c-[kp] { color: #990055 } /* Keyword.Pseudo */
-c-[kr] { color: #990055 } /* Keyword.Reserved */
-c-[ld] { color: #000000 } /* Literal.Date */
-c-[nc] { color: #0077aa } /* Name.Class */
-c-[no] { color: #0077aa } /* Name.Constant */
-c-[nd] { color: #0077aa } /* Name.Decorator */
-c-[ni] { color: #0077aa } /* Name.Entity */
-c-[ne] { color: #0077aa } /* Name.Exception */
-c-[nf] { color: #0077aa } /* Name.Function */
-c-[nl] { color: #0077aa } /* Name.Label */
-c-[nn] { color: #0077aa } /* Name.Namespace */
-c-[py] { color: #0077aa } /* Name.Property */
-c-[ow] { color: #999999 } /* Operator.Word */
-c-[mb] { color: #000000 } /* Literal.Number.Bin */
-c-[mf] { color: #000000 } /* Literal.Number.Float */
-c-[mh] { color: #000000 } /* Literal.Number.Hex */
-c-[mi] { color: #000000 } /* Literal.Number.Integer */
-c-[mo] { color: #000000 } /* Literal.Number.Oct */
-c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
-c-[sc] { color: #a67f59 } /* Literal.String.Char */
-c-[sd] { color: #a67f59 } /* Literal.String.Doc */
-c-[se] { color: #a67f59 } /* Literal.String.Escape */
-c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
-c-[si] { color: #a67f59 } /* Literal.String.Interpol */
-c-[sx] { color: #a67f59 } /* Literal.String.Other */
-c-[sr] { color: #a67f59 } /* Literal.String.Regex */
-c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
-c-[vc] { color: #0077aa } /* Name.Variable.Class */
-c-[vg] { color: #0077aa } /* Name.Variable.Global */
-c-[vi] { color: #0077aa } /* Name.Variable.Instance */
-c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
-
-@media (prefers-color-scheme: dark) {
-    .highlight:not(.idl) { background: rgba(255, 255, 255, .05); }
-
-    c-[a] { color: #d33682 } /* Keyword.Declaration */
-    c-[b] { color: #d33682 } /* Keyword.Type */
-    c-[c] { color: #2aa198 } /* Comment */
-    c-[d] { color: #2aa198 } /* Comment.Multiline */
-    c-[e] { color: #268bd2 } /* Name.Attribute */
-    c-[f] { color: #b58900 } /* Name.Tag */
-    c-[g] { color: #cb4b16 } /* Name.Variable */
-    c-[k] { color: #d33682 } /* Keyword */
-    c-[l] { color: #657b83 } /* Literal */
-    c-[m] { color: #657b83 } /* Literal.Number */
-    c-[n] { color: #268bd2 } /* Name */
-    c-[o] { color: #657b83 } /* Operator */
-    c-[p] { color: #657b83 } /* Punctuation */
-    c-[s] { color: #6c71c4 } /* Literal.String */
-    c-[t] { color: #6c71c4 } /* Literal.String.Single */
-    c-[u] { color: #6c71c4 } /* Literal.String.Double */
-    c-[ch] { color: #2aa198 } /* Comment.Hashbang */
-    c-[cp] { color: #2aa198 } /* Comment.Preproc */
-    c-[cpf] { color: #2aa198 } /* Comment.PreprocFile */
-    c-[c1] { color: #2aa198 } /* Comment.Single */
-    c-[cs] { color: #2aa198 } /* Comment.Special */
-    c-[kc] { color: #d33682 } /* Keyword.Constant */
-    c-[kn] { color: #d33682 } /* Keyword.Namespace */
-    c-[kp] { color: #d33682 } /* Keyword.Pseudo */
-    c-[kr] { color: #d33682 } /* Keyword.Reserved */
-    c-[ld] { color: #657b83 } /* Literal.Date */
-    c-[nc] { color: #268bd2 } /* Name.Class */
-    c-[no] { color: #268bd2 } /* Name.Constant */
-    c-[nd] { color: #268bd2 } /* Name.Decorator */
-    c-[ni] { color: #268bd2 } /* Name.Entity */
-    c-[ne] { color: #268bd2 } /* Name.Exception */
-    c-[nf] { color: #268bd2 } /* Name.Function */
-    c-[nl] { color: #268bd2 } /* Name.Label */
-    c-[nn] { color: #268bd2 } /* Name.Namespace */
-    c-[py] { color: #268bd2 } /* Name.Property */
-    c-[ow] { color: #657b83 } /* Operator.Word */
-    c-[mb] { color: #657b83 } /* Literal.Number.Bin */
-    c-[mf] { color: #657b83 } /* Literal.Number.Float */
-    c-[mh] { color: #657b83 } /* Literal.Number.Hex */
-    c-[mi] { color: #657b83 } /* Literal.Number.Integer */
-    c-[mo] { color: #657b83 } /* Literal.Number.Oct */
-    c-[sa] { color: #6c71c4 } /* Literal.String.Affix */
-    c-[sb] { color: #6c71c4 } /* Literal.String.Backtick */
-    c-[sc] { color: #6c71c4 } /* Literal.String.Char */
-    c-[dl] { color: #6c71c4 } /* Literal.String.Delimiter */
-    c-[sd] { color: #6c71c4 } /* Literal.String.Doc */
-    c-[se] { color: #6c71c4 } /* Literal.String.Escape */
-    c-[sh] { color: #6c71c4 } /* Literal.String.Heredoc */
-    c-[si] { color: #6c71c4 } /* Literal.String.Interpol */
-    c-[sx] { color: #6c71c4 } /* Literal.String.Other */
-    c-[sr] { color: #6c71c4 } /* Literal.String.Regex */
-    c-[ss] { color: #6c71c4 } /* Literal.String.Symbol */
-    c-[fm] { color: #268bd2 } /* Name.Function.Magic */
-    c-[vc] { color: #cb4b16 } /* Name.Variable.Class */
-    c-[vg] { color: #cb4b16 } /* Name.Variable.Global */
-    c-[vi] { color: #cb4b16 } /* Name.Variable.Instance */
-    c-[vm] { color: #cb4b16 } /* Name.Variable.Magic */
-    c-[il] { color: #657b83 } /* Literal.Number.Integer.Long */
-}
-</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://knows.idlab.ugent.be/">
@@ -2176,11 +2055,11 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 </p>
    <h1 class="p-name no-ref" id="title">SPARQL 1.1 Incremental Protocol</h1>
    <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document,
-    <time class="dt-updated" datetime="2025-12-01">1 December 2025</time></span></h2>
+    <time class="dt-updated" datetime="2025-11-25">25 November 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Previous Versions:
-     <dd><a href="https://spec.knows.idlab.ugent.be/sparql-11-incremental-protocol/all/8e9e0e95656551b8e0c336c0de59d057ab1429ff" rel="prev">https://spec.knows.idlab.ugent.be/sparql-11-incremental-protocol/all/8e9e0e95656551b8e0c336c0de59d057ab1429ff</a>
+     <dd><a href="https://spec.knows.idlab.ugent.be/sparql-11-incremental-protocol/all/070aeba5f385fe1e5015fa2cc4c85feb692c6ff2" rel="prev">https://spec.knows.idlab.ugent.be/sparql-11-incremental-protocol/all/070aeba5f385fe1e5015fa2cc4c85feb692c6ff2</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/SolidLabResearch/sparql-incremental-protocol/issues/">GitHub</a>
      <dd><a href="#issues-index">Inline In Spec</a>
@@ -2192,7 +2071,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 1 December 2025,
+In addition, as of 25 November 2025,
 the editors have made this specification available under the
 <a href="https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0.
@@ -2202,7 +2081,7 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This document defines an extension to the SPARQL 1.1 Protocol that enables incremental delivery of SPARQL query results over Server-Sent Events. Instead of a single response, the service emits a stream of events that convey an initial query results followed by incremental updates and explicit "up-to-date" signals. This extension is intended for use by incremental view maintenance (IVM) engines and other systems that require low-latency maintenance of SPARQL query results under updates.</p>
+   <p>This document defines an extension to the SPARQL 1.1 Protocol that enables incremental delivery of SPARQL query results over Server-Sent Events (SSE). Instead of a single response, the server emits a stream of events that convey an initial complete result set followed by incremental updates and explicit "up-to-date" signals. This extension is intended for use by incremental view maintenance (IVM) engines and other systems that require low-latency maintenance of SPARQL query results under updates.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -2212,7 +2091,6 @@ Parts of this work may be from another specification document.  If so, those par
      <a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
      <ol class="toc">
       <li><a href="#terminology"><span class="secno">1.1</span> <span class="content">Terminology</span></a>
-      <li><a href="#namespaces"><span class="secno">1.2</span> <span class="content">Namespaces</span></a>
      </ol>
     <li>
      <a href="#protocol"><span class="secno">2</span> <span class="content">SPARQL Incremental Protocol</span></a>
@@ -2255,33 +2133,6 @@ Parts of this work may be from another specification document.  If so, those par
         <li><a href="#rdf-up-to-date"><span class="secno">2.6.4</span> <span class="content"><code>up-to-date</code> Event</span></a>
         <li><a href="#rdf-error"><span class="secno">2.6.5</span> <span class="content"><code>error</code> Event</span></a>
        </ol>
-      <li><a href="#service-description"><span class="secno">2.7</span> <span class="content">Service Description</span></a>
-     </ol>
-    <li>
-     <a href="#sip-vocabulary"><span class="secno">3</span> <span class="content">Vocabulary</span></a>
-     <ol class="toc">
-      <li>
-       <a href="#sip-vocabulary-classes"><span class="secno">3.1</span> <span class="content">Classes</span></a>
-       <ol class="toc">
-        <li><a href="#IncrementalService"><span class="secno">3.1.1</span> <span class="content">sip:IncrementalService</span></a>
-        <li><a href="#Processing"><span class="secno">3.1.2</span> <span class="content">sip:Processing</span></a>
-        <li><a href="#Update"><span class="secno">3.1.3</span> <span class="content">sip:Update</span></a>
-        <li><a href="#UpToDate"><span class="secno">3.1.4</span> <span class="content">sip:UpToDate</span></a>
-        <li><a href="#Error"><span class="secno">3.1.5</span> <span class="content">sip:Error</span></a>
-       </ol>
-      <li>
-       <a href="#sip-vocabulary-properties"><span class="secno">3.2</span> <span class="content">Properties</span></a>
-       <ol class="toc">
-        <li><a href="#incrementalProtocol"><span class="secno">3.2.1</span> <span class="content">sip:incrementalProtocol</span></a>
-        <li><a href="#streamingEndpoint"><span class="secno">3.2.2</span> <span class="content">sip:streamingEndpoint</span></a>
-        <li><a href="#resultFormat"><span class="secno">3.2.3</span> <span class="content">sip:resultFormat</span></a>
-        <li><a href="#supportsLastEventID"><span class="secno">3.2.4</span> <span class="content">sip:supportsLastEventID</span></a>
-        <li><a href="#additions"><span class="secno">3.2.5</span> <span class="content">sip:additions</span></a>
-        <li><a href="#deletions"><span class="secno">3.2.6</span> <span class="content">sip:deletions</span></a>
-        <li><a href="#timestamp"><span class="secno">3.2.7</span> <span class="content">sip:timestamp</span></a>
-        <li><a href="#status"><span class="secno">3.2.8</span> <span class="content">sip:status</span></a>
-        <li><a href="#statusText"><span class="secno">3.2.9</span> <span class="content">sip:statusText</span></a>
-       </ol>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content">
     Conformance</span></a>
@@ -2303,15 +2154,15 @@ Parts of this work may be from another specification document.  If so, those par
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    
 The <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-protocol/#sparql-protocol" id="ref-for-sparql-protocol">SPARQL Protocol</a> defines how clients issue SPARQL queries and receive results over HTTP.
-In its standard form, each query produces a single response containing the query results, serialized using formats such as <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-json/#sparql-results-json" id="ref-for-sparql-results-json">SPARQL Results JSON</a> or <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-xml/#sparql-results-xml" id="ref-for-sparql-results-xml">SPARQL Results XML</a>.
+In its standard form, each query produces a single response containing the complete result set, serialized using formats such as <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-json/#sparql-results-json" id="ref-for-sparql-results-json">SPARQL Results JSON</a> or <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-xml/#sparql-results-xml" id="ref-for-sparql-results-xml">SPARQL Results XML</a>.
 
 
-   <p>For applications that maintain long-lived queries over changing data, repeatedly reissuing queries and re-fetching full results is inefficient and adds latency.</p>
-   <p>This specification defines an extension to the <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-protocol/#sparql-protocol" id="ref-for-sparql-protocol①">SPARQL Protocol</a> that allows a <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-protocol/#sparql-protocol-service" id="ref-for-sparql-protocol-service">SPARQL Protocol service</a> to deliver results as an <a data-link-type="dfn" href="#incremental-result-stream" id="ref-for-incremental-result-stream">Incremental Result Stream</a> using <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events">server-sent events</a>.
+   <p>For applications that maintain long-lived queries over changing data — such as incremental view maintenance (IVM) engines, live dashboards, and stream processors — repeatedly reissuing queries and re-fetching full results is inefficient and adds latency.</p>
+   <p>This specification defines an extension to the <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-protocol/#sparql-protocol" id="ref-for-sparql-protocol①">SPARQL Protocol</a> that allows a <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-protocol/#sparql-protocol-service" id="ref-for-sparql-protocol-service">SPARQL Protocol service</a> to deliver results as a <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events">server-sent events</a> <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#event-stream" id="ref-for-event-stream">event stream</a>.
 Instead of returning a single result document, the service emits:</p>
    <ul>
     <li data-md>
-     <p>an <code>initial</code> event containing the complete results at that time.</p>
+     <p>an <code>initial</code> event containing a complete result set.</p>
     <li data-md>
      <p>zero or more <code>processing</code> event indicating that the service is working on new changes.</p>
     <li data-md>
@@ -2321,66 +2172,29 @@ Instead of returning a single result document, the service emits:</p>
     <li data-md>
      <p>zero or one <code>error</code> event indicating that an error has occurred, after which no further events will be sent.</p>
    </ul>
-   <p>This version of the specification normatively defines different serializations for query results over <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events①">server-sent events</a>.</p>
+   <p>This version of the specification normatively defines JSON-based and XML-based serializations over SSE result streams.</p>
    <h3 class="heading settled" data-level="1.1" id="terminology"><span class="secno">1.1. </span><span class="content">Terminology</span><a class="self-link" href="#terminology"></a></h3>
    
-We use the terms specified in the <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-protocol/#sparql-protocol" id="ref-for-sparql-protocol②">SPARQL Protocol</a> and <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-query/#sparql-query" id="ref-for-sparql-query">SPARQL Query</a> specifications, and additionally define:
+We use the terms specified in the <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-protocol/#sparql-protocol" id="ref-for-sparql-protocol②">SPARQL Protocol</a> and <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-query/#sparql-query" id="ref-for-sparql-query">SPARQL Query</a> specifications. and additionally define:
 
    <ul>
     <li data-md>
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="incremental-sparql-query">Incremental SPARQL Query</dfn>: A SPARQL query that is intended to be maintained incrementally over time as the underlying data changes.</p>
-    <li data-md>
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="incremental-sparql-service">Incremental SPARQL Service</dfn>: A SPARQL service advertising <code>sip:incrementalProtocol</code> (typed as <code>sip:IncrementalService</code>) that exposes incremental results. Consisting of additions and deletions over time updating the results of <a data-link-type="dfn" href="#incremental-sparql-query" id="ref-for-incremental-sparql-query">Incremental SPARQL Queries</a>.</p>
-    <li data-md>
-     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="incremental-result-stream">Incremental Result Stream</dfn>: The <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events②">server-sent events</a> stream for a single query that carries the <code>initial</code>, <code>processing</code>, <code>update</code>, <code>up-to-date</code>, and <code>error</code> events defined in this specification.</p>
+     <p><strong>Incremental SPARQL Query</strong>: A SPARQL query that is intended to be maintained incrementally over time as the underlying data changes.</p>
    </ul>
-   <h3 class="heading settled" data-level="1.2" id="namespaces"><span class="secno">1.2. </span><span class="content">Namespaces</span><a class="self-link" href="#namespaces"></a></h3>
-   
-The following namespace prefixes are used throughout this document.
-
-
-   <table class="complex">
-    <thead>
-     <tr>
-      <th>Prefix     
-      <th>IRI
-    <tbody>
-     <tr>
-      <td><code>sip:</code>
-      <td><code>https://www.w3.org/ns/sparql-incremental#</code>
-     <tr>
-      <td><code>sd:</code>
-      <td><code>http://www.w3.org/ns/sparql-service-description#</code>
-     <tr>
-      <td><code>xsd:</code>
-      <td><code>http://www.w3.org/2001/XMLSchema#</code>
-     <tr>
-      <td><code>rdfs:</code>
-      <td><code>http://www.w3.org/2000/01/rdf-schema#</code>
-     <tr>
-      <td><code>rdf:</code>
-      <td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code>
-     <tr>
-      <td><code>owl:</code>
-      <td><code>http://www.w3.org/2002/07/owl#</code>
-   </table>
-   <p class="issue" id="issue-275ce785"><a class="self-link" href="#issue-275ce785"></a> The <code>http://www.w3.org/ns/sparql-incremental#</code> namespace needs to be registered.</p>
    <h2 class="heading settled" data-level="2" id="protocol"><span class="secno">2. </span><span class="content">SPARQL Incremental Protocol</span><a class="self-link" href="#protocol"></a></h2>
    
-This protocol only changes three aspects of the <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-protocol/#sparql-protocol" id="ref-for-sparql-protocol③">SPARQL Protocol</a>:
+This sparql protocol only changes two aspects of the SPARQL Protocol:
 
    <ol>
     <li data-md>
-     <p>Content negotiation to select the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events③">server-sent events</a>-based incremental result format.</p>
+     <p>Content negotiation to select the SSE-based incremental result format.</p>
     <li data-md>
-     <p>The body of the success response format itself, which is now a <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events④">server-sent events</a> stream.</p>
-    <li data-md>
-     <p>The service description to advertise support for this protocol extension.</p>
+     <p>The body of the success response format itself, which is now a stream of SSE events.</p>
    </ol>
    <h3 class="heading settled" data-level="2.1" id="content-negotiation"><span class="secno">2.1. </span><span class="content">Content Negotiation</span><a class="self-link" href="#content-negotiation"></a></h3>
    
-To request incremental results over <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events⑤">server-sent events</a>, the client MUST include the <code>text/event-stream</code> media type in the <code>Accept</code> header as per the requirements for <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events⑥">server-sent events</a> in <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>.
-By default, the the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service">Incremental SPARQL Service</a> MUST respond with the JSON-based serialization (see <a href="#events-json">§ 2.3 Events JSON</a>) for binding and boolean results and the RDF serialization (see <a href="#events-rdf">§ 2.6 Events RDF</a>) for graph results.
+To request incremental results over SSE, the client MUST include the <code>text/event-stream</code> media type in the <code>Accept</code> header as per the requirements for <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events①">server-sent events</a> in <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>.
+By default, the the server MUST respond with the JSON-based serialization (see <a href="#events-json">§ 2.3 Events JSON</a>).
 This is to have the best compatibility with the EventSource API in web browsers, where JSON is the most commonly supported format.
 To support other serializations, the client MAY add the <code>Accept</code> header string to a <code>accept</code> HTTP query string parameter of the request.
 In case of a URL-encoded POST requests, the <code>accept</code> parameter MUST be included in the body of the request.
@@ -2389,46 +2203,46 @@ This parameter is <strong>not</strong> part of HTTP content negotiation; it is i
 
    <h3 class="heading settled" data-level="2.2" id="events-semantics"><span class="secno">2.2. </span><span class="content">Events Semantics</span><a class="self-link" href="#events-semantics"></a></h3>
    
-The <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events⑦">server-sent events</a> stream consists of the following event types.
-Implementations MUST support these event types, but MAY emit additional event types not defined in this specification.
-The <code>id</code> field defined by the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events⑧">server-sent events</a> specification MAY be supported by the implementation.
+The SSE event stream consists of the following event types. The <code>event</code> field of the Server-Sent Event MUST be one of these values.
 
 
    <dl>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="initial">initial</dfn>
     <dd data-md>
      <p>This event conveys the initial state of the query results.
-It MUST be the first event emitted by the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service①">Incremental SPARQL Service</a> upon successfully establishing the stream.
-The data payload contains the complete results, serialized according to the negotiated format.</p>
+It MUST be the first event emitted by the server upon successfully establishing the stream.
+The data payload contains the complete result set, serialized according to the negotiated format.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="processing">processing</dfn>
     <dd data-md>
-     <p>This event MUST be emmited when the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service②">Incremental SPARQL Service</a> is processing updates to the underlying data.
+     <p>This event indicates that the server is processing updates to the underlying data.
+It serves as a heartbeat or progress indicator.
 The payload MAY contain a timestamp representing the latest data change being processed.
 This event does not guarantee that an <code>update</code> event will follow (e.g., if the processed changes do not affect the query result).</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="update">update</dfn>
     <dd data-md>
      <p>This event conveys incremental changes to the query results since the last <code>initial</code> or <code>update</code> event.
-The payload describes the additions and/or deletions to the query results.
+The payload describes a set of additions and/or removals to the result set.
 The head with variable names and the optional link array SHOULD NOT be included in these events.
-The <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service③">Incremental SPARQL Service</a> MAY emit multiple <code>update</code> events before an <code>up-to-date</code> event to batch changes.</p>
+The server MUST prune deletions and additions that cancel each other out before emitting this event.
+The server MAY emit multiple <code>update</code> events before an <code>up-to-date</code> event to batch changes.</p>
    </dl>
-   <p class="note" role="note"><span class="marker">NOTE:</span> When processing updates, the additions should be applied before deletions to avoid transient inconsistencies in the results.</p>
+   <p class="note" role="note"><span class="marker">NOTE:</span> When processing updates, the deletions should be applied before additions to avoid transient inconsistencies in the result set.</p>
    <dl>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="up-to-date">up-to-date</dfn>
     <dd data-md>
-     <p>This event signals that the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service④">Incremental SPARQL Service</a> has processed all changes to the underlying data.
+     <p>This event signals that the client’s view is consistent with the server’s state at a specific point in time.
 It indicates that all changes known up to the included timestamp have been processed and any resulting <code>update</code> events have been emitted.
 The payload MUST include a timestamp indicating this consistency point.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="error">error</dfn>
     <dd data-md>
      <p>This event indicates a terminal failure in the stream generation.
-After emitting this event, the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service⑤">Incremental SPARQL Service</a> MUST close the connection.
+After emitting this event, the server MUST close the connection.
 The payload MUST include an error code and a description.
-This event is reserved for errors occurring <em>after</em> the stream has started; initial request errors (like SPARQL syntax errors) MUST be handled via standard HTTP status codes.</p>
+This event is reserved for errors occurring <em>after</em> the stream has started; initial request errors MUST be handled via standard HTTP status codes.</p>
    </dl>
    <h3 class="heading settled" data-level="2.3" id="events-json"><span class="secno">2.3. </span><span class="content">Events JSON</span><a class="self-link" href="#events-json"></a></h3>
    <p>This section defines the JSON serialization for the incremental events.
-The <code>event</code> field of the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events⑨">server-sent events</a> message corresponds to the event type defined in <a href="#events-semantics">§ 2.2 Events Semantics</a>.
+The <code>event</code> field of the SSE message corresponds to the event type defined in <a href="#events-semantics">§ 2.2 Events Semantics</a>.
 The <code>data</code> field contains the JSON payload.</p>
    <h4 class="heading settled" data-level="2.3.1" id="json-initial"><span class="secno">2.3.1. </span><span class="content"><code>initial</code> Event</span><a class="self-link" href="#json-initial"></a></h4>
    <p>The <code>initial</code> event payload follows the <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-json/#sparql-results-json" id="ref-for-sparql-results-json①">SPARQL Results JSON</a> format.</p>
@@ -2504,10 +2318,11 @@ data: }
    </div>
    <h3 class="heading settled" data-level="2.4" id="events-xml"><span class="secno">2.4. </span><span class="content">Events XML</span><a class="self-link" href="#events-xml"></a></h3>
    <p>This section defines the XML serialization for the incremental events.
-The <code>event</code> field of the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events①⓪">server-sent events</a> message corresponds to the event type defined in <a href="#events-semantics">§ 2.2 Events Semantics</a>.
+The <code>event</code> field of the SSE message corresponds to the event type defined in <a href="#events-semantics">§ 2.2 Events Semantics</a>.
 The <code>data</code> field contains the XML payload.
 The incremental protocol elements are defined in the namespace <code>http://www.w3.org/ns/sparql-incremental#</code>.
 Standard SPARQL results elements are used within this wrapper in the <code>http://www.w3.org/2005/sparql-results#</code> namespace.</p>
+   <p class="issue" id="issue-275ce785"><a class="self-link" href="#issue-275ce785"></a> The <code>http://www.w3.org/ns/sparql-incremental#</code> namespace needs to be registered.</p>
    <h4 class="heading settled" data-level="2.4.1" id="xml-initial"><span class="secno">2.4.1. </span><span class="content"><code>initial</code> Event</span><a class="self-link" href="#xml-initial"></a></h4>
    <p>The <code>initial</code> event payload follows the <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-xml/#sparql-results-xml" id="ref-for-sparql-results-xml①">SPARQL Results XML</a> format.
 It uses the standard SPARQL results namespace.</p>
@@ -2582,7 +2397,7 @@ data: &lt;error xmlns="http://www.w3.org/ns/sparql-incremental#" status="500" st
    </div>
    <h3 class="heading settled" data-level="2.5" id="events-csv-tsv"><span class="secno">2.5. </span><span class="content">Events CSV and TSV</span><a class="self-link" href="#events-csv-tsv"></a></h3>
    <p>This section defines the CSV and TSV serializations for the incremental events.
-The <code>event</code> field of the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events①①">server-sent events</a> message corresponds to the event type defined in <a href="#events-semantics">§ 2.2 Events Semantics</a>.
+The <code>event</code> field of the SSE message corresponds to the event type defined in <a href="#events-semantics">§ 2.2 Events Semantics</a>.
 The <code>data</code> field contains the payload formatted according to <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-csv-tsv/#sparql-results-csv" id="ref-for-sparql-results-csv">SPARQL Results CSV</a> or <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-csv-tsv/#sparql-results-tsv" id="ref-for-sparql-results-tsv">SPARQL Results TSV</a>.
 For TSV, the values MUST be encoded as defined in <a data-link-type="dfn" href="https://www.w3.org/TR/sparql11-results-csv-tsv/#sparql-results-tsv" id="ref-for-sparql-results-tsv①">SPARQL Results TSV</a> (e.g., IRIs enclosed in <code>&lt;></code>).</p>
    <h4 class="heading settled" data-level="2.5.1" id="csv-tsv-initial"><span class="secno">2.5.1. </span><span class="content"><code>initial</code> Event</span><a class="self-link" href="#csv-tsv-initial"></a></h4>
@@ -2644,7 +2459,7 @@ data: 500,"Internal Server Error: Query execution timeout"
    <p>This section defines the RDF serialization for the incremental events.
 This serialization is used when the client negotiates an RDF media type (e.g., <code>text/turtle</code>, <code>application/trig</code>, <code>application/ld+json</code>).
 It is applicable only to <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries, which return an RDF Graph.
-The <code>event</code> field of the <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/#server-sent-events" id="ref-for-server-sent-events①②">server-sent events</a> message corresponds to the event type defined in <a href="#events-semantics">§ 2.2 Events Semantics</a>.
+The <code>event</code> field of the SSE message corresponds to the event type defined in <a href="#events-semantics">§ 2.2 Events Semantics</a>.
 The <code>data</code> field contains the RDF payload serialized in the negotiated format.</p>
    <p>The incremental protocol terms are defined in the namespace <code>http://www.w3.org/ns/sparql-incremental#</code> (prefix <code>sip</code>).</p>
    <h4 class="heading settled" data-level="2.6.1" id="rdf-initial"><span class="secno">2.6.1. </span><span class="content"><code>initial</code> Event</span><a class="self-link" href="#rdf-initial"></a></h4>
@@ -2658,7 +2473,7 @@ data: :book1 :title "SPARQL Tutorial" .
 </pre>
    </div>
    <h4 class="heading settled" data-level="2.6.2" id="rdf-processing"><span class="secno">2.6.2. </span><span class="content"><code>processing</code> Event</span><a class="self-link" href="#rdf-processing"></a></h4>
-   <p>The <code>processing</code> event payload contains an instance of <a href="#Processing">sip:Processing</a>.</p>
+   <p>The <code>processing</code> event payload contains an instance of <code>sip:Processing</code>.</p>
    <div class="example" id="example-062b792d">
     <a class="self-link" href="#example-062b792d"></a>
 
@@ -2673,7 +2488,7 @@ data:    sip:timestamp "2024-11-24T10:00:00Z"^^xsd:dateTime .
    <h4 class="heading settled" data-level="2.6.3" id="rdf-update"><span class="secno">2.6.3. </span><span class="content"><code>update</code> Event</span><a class="self-link" href="#rdf-update"></a></h4>
    <p>The <code>update</code> event payload conveys additions and deletions.
 The additions and deletions MUST be described using standard RDF Reification.
-The <a href="#Update">sip:Update</a> instance links to the reified statements via <a href="#additions">sip:additions</a> and <a href="#deletions">sip:deletions</a>.</p>
+The <code>sip:Update</code> instance links to the reified statements via <code>sip:additions</code> and <code>sip:deletions</code>.</p>
    <div class="example" id="example-98e27c8f">
     <a class="self-link" href="#example-98e27c8f"></a>
 
@@ -2695,7 +2510,7 @@ data:    ] .
    </div>
    <p class="note" role="note"><span class="marker">NOTE:</span> A future version of this specification will adopt the RDF 1.2 terminology of <em>RDF terms</em> and will use RDF 1.2 quoted triples for describing additions and deletions.</p>
    <h4 class="heading settled" data-level="2.6.4" id="rdf-up-to-date"><span class="secno">2.6.4. </span><span class="content"><code>up-to-date</code> Event</span><a class="self-link" href="#rdf-up-to-date"></a></h4>
-   <p>The <code>up-to-date</code> event payload contains an instance of <a href="#UpToDate">sip:UpToDate</a>.</p>
+   <p>The <code>up-to-date</code> event payload contains an instance of <code>sip:UpToDate</code>.</p>
    <div class="example" id="example-b90daadb">
     <a class="self-link" href="#example-b90daadb"></a>
 
@@ -2708,7 +2523,7 @@ data:    sip:timestamp "2024-11-24T10:05:00Z"^^xsd:dateTime .
 </pre>
    </div>
    <h4 class="heading settled" data-level="2.6.5" id="rdf-error"><span class="secno">2.6.5. </span><span class="content"><code>error</code> Event</span><a class="self-link" href="#rdf-error"></a></h4>
-   <p>The <code>error</code> event payload contains an instance of <a href="#Error">sip:Error</a>.</p>
+   <p>The <code>error</code> event payload contains an instance of <code>sip:Error</code>.</p>
    <div class="example" id="example-90b3b096">
     <a class="self-link" href="#example-90b3b096"></a>
 
@@ -2720,129 +2535,6 @@ data:    sip:status 500 ;
 data:    sip:statusText "Internal Server Error: Query execution timeout" .
 </pre>
    </div>
-   <h3 class="heading settled" data-level="2.7" id="service-description"><span class="secno">2.7. </span><span class="content">Service Description</span><a class="self-link" href="#service-description"></a></h3>
-   
-Endpoints implementing this extension SHOULD advertise their support for the SPARQL 1.1 Incremental Protocol through the SPARQL Service Description vocabulary.
-Concretely, an endpoint MAY assert the feature <a href="#incrementalProtocol">sip:incrementalProtocol</a> on its <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a> description, MAY type the service as a <a href="#IncrementalService">sip:IncrementalService</a> (making it an <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service⑥">Incremental SPARQL Service</a>), and MAY provide the incremental metadata defined in <a href="#sip-vocabulary">§ 3 Vocabulary</a>.
-
-
-   <div class="example" id="example-6c4b14b9">
-    <a class="self-link" href="#example-6c4b14b9"></a>
-
-<pre class="language-turtle highlight"><c- k>@prefix</c-> <c- nn>sd:</c->  <c- g>&lt;http://www.w3.org/ns/sparql-service-description#></c-> <c- p>.</c->
-<c- k>@prefix</c-> <c- nn>sip:</c-> <c- g>&lt;https://www.w3.org/ns/sparql-incremental#></c-> <c- p>.</c->
-<c- k>@prefix</c-> <c- nn>xsd:</c-> <c- g>&lt;http://www.w3.org/2001/XMLSchema#></c-> <c- p>.</c->
-
-<c- p>[]</c-> <c- b>a</c-> <c- nn>sd</c-><c- p>:</c-><c- f>Service</c-><c- p>,</c-> <c- nn>sip</c-><c- p>:</c-><c- f>IncrementalService</c-> <c- p>;</c->
-   <c- nn>sd</c-><c- p>:</c-><c- f>endpoint</c-> <c- g>&lt;https://example.org/sparql></c-> <c- p>;</c->
-
-   <c- c># Advertise incremental protocol support</c->
-   <c- nn>sd</c-><c- p>:</c-><c- f>feature</c-> <c- nn>sip</c-><c- p>:</c-><c- f>incrementalProtocol</c-> <c- p>;</c->
-
-   <c- c># Additional incremental metadata</c->
-   <c- nn>sip</c-><c- p>:</c-><c- f>streamingEndpoint</c-> <c- g>&lt;https://example.org/sparql/stream></c-> <c- p>;</c->
-   <c- nn>sip</c-><c- p>:</c-><c- f>resultFormat</c-> <c- s>"text/event-stream+sparql-results+json"</c-> <c- p>;</c->
-   <c- nn>sip</c-><c- p>:</c-><c- f>supportsLastEventID</c-> <c- l>true</c-> <c- p>.</c->
-</pre>
-   </div>
-   <h2 class="heading settled" data-level="3" id="sip-vocabulary"><span class="secno">3. </span><span class="content">Vocabulary</span><a class="self-link" href="#sip-vocabulary"></a></h2>
-   
-The SPARQL 1.1 Incremental Protocol vocabulary is defined in the <code>sip:</code> namespace (<code>https://www.w3.org/ns/sparql-incremental#</code>). 
-The following terms are used in this specification.
-
-
-   <h3 class="heading settled" data-level="3.1" id="sip-vocabulary-classes"><span class="secno">3.1. </span><span class="content">Classes</span><a class="self-link" href="#sip-vocabulary-classes"></a></h3>
-   <h4 class="heading settled" data-level="3.1.1" id="IncrementalService"><span class="secno">3.1.1. </span><span class="content">sip:IncrementalService</span><a class="self-link" href="#IncrementalService"></a></h4>
-   
-An instance of <code>sip:IncrementalService</code> indicates that the service supports the SPARQL 1.1 Incremental Protocol.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></p>
-   <h4 class="heading settled" data-level="3.1.2" id="Processing"><span class="secno">3.1.2. </span><span class="content">sip:Processing</span><a class="self-link" href="#Processing"></a></h4>
-   
-The class of resources signalling that the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service⑦">Incremental SPARQL Service</a> is processing updates to the underlying data.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></p>
-   <h4 class="heading settled" data-level="3.1.3" id="Update"><span class="secno">3.1.3. </span><span class="content">sip:Update</span><a class="self-link" href="#Update"></a></h4>
-   
-The class of resources that describe incremental changes to the results via additions and deletions.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></p>
-   <h4 class="heading settled" data-level="3.1.4" id="UpToDate"><span class="secno">3.1.4. </span><span class="content">sip:UpToDate</span><a class="self-link" href="#UpToDate"></a></h4>
-   
-The class of resources indicating that the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service⑧">Incremental SPARQL Service</a> has processed all updates to the underlying data.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></p>
-   <h4 class="heading settled" data-level="3.1.5" id="Error"><span class="secno">3.1.5. </span><span class="content">sip:Error</span><a class="self-link" href="#Error"></a></h4>
-   
-The class of resources conveying terminal stream errors emitted after a stream has started.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_class">rdfs:Class</a></p>
-   <h3 class="heading settled" data-level="3.2" id="sip-vocabulary-properties"><span class="secno">3.2. </span><span class="content">Properties</span><a class="self-link" href="#sip-vocabulary-properties"></a></h3>
-   <h4 class="heading settled" data-level="3.2.1" id="incrementalProtocol"><span class="secno">3.2.1. </span><span class="content">sip:incrementalProtocol</span><a class="self-link" href="#incrementalProtocol"></a></h4>
-   
-Feature IRI advertised on a <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a> to signal support for the SPARQL 1.1 Incremental Protocol.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a><br>
-<strong>domain:</strong> <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a></p>
-   <h4 class="heading settled" data-level="3.2.2" id="streamingEndpoint"><span class="secno">3.2.2. </span><span class="content">sip:streamingEndpoint</span><a class="self-link" href="#streamingEndpoint"></a></h4>
-   
-Relates a <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a> to the IRI of the streaming endpoint that serves incremental results using the SPARQL 1.1 Incremental Protocol.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/owl-ref/#InverseFunctionalProperty-def">owl:InverseFunctionalProperty</a><br>
-<strong>domain:</strong> <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a></p>
-   <h4 class="heading settled" data-level="3.2.3" id="resultFormat"><span class="secno">3.2.3. </span><span class="content">sip:resultFormat</span><a class="self-link" href="#resultFormat"></a></h4>
-   
-Relates a <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a> to the serialization used for incremental results (e.g., <code>text/event-stream+sparql-results+json</code>).
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a><br>
-<strong>domain:</strong> <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a><br>
-<strong>range:</strong> <a href="https://www.w3.org/ns/formats/Format">http://www.w3.org/ns/formats/Format</a></p>
-   <h4 class="heading settled" data-level="3.2.4" id="supportsLastEventID"><span class="secno">3.2.4. </span><span class="content">sip:supportsLastEventID</span><a class="self-link" href="#supportsLastEventID"></a></h4>
-   
-Relates a <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a> to a boolean value indicating whether the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service⑨">Incremental SPARQL Service</a> supports the <code>Last-Event-ID</code> mechanism of Server-Sent Events for resuming streams.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a><br>
-<strong>domain:</strong> <a href="https://www.w3.org/TR/sparql11-service-description/#sd-Service">sd:Service</a><br>
-<strong>range:</strong> <a href="https://www.w3.org/TR/xmlschema11-2/#boolean">xsd:boolean</a></p>
-   <h4 class="heading settled" data-level="3.2.5" id="additions"><span class="secno">3.2.5. </span><span class="content">sip:additions</span><a class="self-link" href="#additions"></a></h4>
-   
-Relates a <a href="#Update">sip:Update</a> instance to reified statements describing triples that were added to the result.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></p>
-   <h4 class="heading settled" data-level="3.2.6" id="deletions"><span class="secno">3.2.6. </span><span class="content">sip:deletions</span><a class="self-link" href="#deletions"></a></h4>
-   
-Relates a <a href="#Update">sip:Update</a> instance to reified statements describing triples that were removed from the result.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></p>
-   <h4 class="heading settled" data-level="3.2.7" id="timestamp"><span class="secno">3.2.7. </span><span class="content">sip:timestamp</span><a class="self-link" href="#timestamp"></a></h4>
-   
-Records the <a href="https://www.w3.org/TR/xmlschema11-2/#dateTime">xsd:dateTime</a> at which the <a data-link-type="dfn" href="#incremental-sparql-service" id="ref-for-incremental-sparql-service①⓪">Incremental SPARQL Service</a> is up to date or processing a specific change, used on <a href="#Processing">sip:Processing</a> and <a href="#UpToDate">sip:UpToDate</a>.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></p>
-   <h4 class="heading settled" data-level="3.2.8" id="status"><span class="secno">3.2.8. </span><span class="content">sip:status</span><a class="self-link" href="#status"></a></h4>
-   
-Captures the HTTP status code associated with a <a href="#Error">sip:Error</a> event payload.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></p>
-   <h4 class="heading settled" data-level="3.2.9" id="statusText"><span class="secno">3.2.9. </span><span class="content">sip:statusText</span><a class="self-link" href="#statusText"></a></h4>
-   
-Provides a textual explanation associated with a <a href="#Error">sip:Error</a> status code.
-
-
-   <p><strong>type:</strong> <a href="https://www.w3.org/TR/rdf-schema/#ch_property">rdf:Property</a></p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content">
@@ -3010,9 +2702,6 @@ Provides a textual explanation associated with a <a href="#Error">sip:Error</a> 
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
    <li><a href="#error">error</a><span>, in § 2.2</span>
-   <li><a href="#incremental-result-stream">Incremental Result Stream</a><span>, in § 1.1</span>
-   <li><a href="#incremental-sparql-query">Incremental SPARQL Query</a><span>, in § 1.1</span>
-   <li><a href="#incremental-sparql-service">Incremental SPARQL Service</a><span>, in § 1.1</span>
    <li><a href="#initial">initial</a><span>, in § 2.2</span>
    <li><a href="#processing">processing</a><span>, in § 2.2</span>
    <li><a href="#update">update</a><span>, in § 2.2</span>
@@ -3023,6 +2712,7 @@ Provides a textual explanation associated with a <a href="#Error">sip:Error</a> 
    <li>
     <a data-link-type="biblio">[HTML]</a> defines the following terms:
     <ul>
+     <li><span class="dfn-paneled" id="143aa2e1">event stream</span>
      <li><span class="dfn-paneled" id="c5450140">server-sent events</span>
     </ul>
    <li>
@@ -3274,17 +2964,15 @@ function parseHTML(markup) {
 {
 let dfnPanelData = {
 "11dca5a8": {"dfnID":"11dca5a8","dfnText":"SPARQL Results XML","external":true,"refSections":[{"refs":[{"id":"ref-for-sparql-results-xml"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-sparql-results-xml\u2460"}],"title":"2.4.1. initial Event"},{"refs":[{"id":"ref-for-sparql-results-xml\u2461"}],"title":"2.4.3. update Event"}],"url":"https://www.w3.org/TR/sparql11-results-xml/#sparql-results-xml"},
+"143aa2e1": {"dfnID":"143aa2e1","dfnText":"event stream","external":true,"refSections":[{"refs":[{"id":"ref-for-event-stream"}],"title":"1. Introduction"}],"url":"https://html.spec.whatwg.org/multipage/#event-stream"},
 "3a60568d": {"dfnID":"3a60568d","dfnText":"SPARQL Query","external":true,"refSections":[{"refs":[{"id":"ref-for-sparql-query"}],"title":"1.1. Terminology"}],"url":"https://www.w3.org/TR/sparql11-query/#sparql-query"},
 "5019ab56": {"dfnID":"5019ab56","dfnText":"SPARQL Results CSV","external":true,"refSections":[{"refs":[{"id":"ref-for-sparql-results-csv"}],"title":"2.5. Events CSV and TSV"},{"refs":[{"id":"ref-for-sparql-results-csv\u2460"}],"title":"2.5.1. initial Event"}],"url":"https://www.w3.org/TR/sparql11-results-csv-tsv/#sparql-results-csv"},
 "785bade8": {"dfnID":"785bade8","dfnText":"SPARQL Results TSV","external":true,"refSections":[{"refs":[{"id":"ref-for-sparql-results-tsv"},{"id":"ref-for-sparql-results-tsv\u2460"}],"title":"2.5. Events CSV and TSV"},{"refs":[{"id":"ref-for-sparql-results-tsv\u2461"}],"title":"2.5.1. initial Event"}],"url":"https://www.w3.org/TR/sparql11-results-csv-tsv/#sparql-results-tsv"},
-"7cae59ba": {"dfnID":"7cae59ba","dfnText":"SPARQL Protocol","external":true,"refSections":[{"refs":[{"id":"ref-for-sparql-protocol"},{"id":"ref-for-sparql-protocol\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-sparql-protocol\u2461"}],"title":"1.1. Terminology"},{"refs":[{"id":"ref-for-sparql-protocol\u2462"}],"title":"2. SPARQL Incremental Protocol"}],"url":"https://www.w3.org/TR/sparql11-protocol/#sparql-protocol"},
+"7cae59ba": {"dfnID":"7cae59ba","dfnText":"SPARQL Protocol","external":true,"refSections":[{"refs":[{"id":"ref-for-sparql-protocol"},{"id":"ref-for-sparql-protocol\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-sparql-protocol\u2461"}],"title":"1.1. Terminology"}],"url":"https://www.w3.org/TR/sparql11-protocol/#sparql-protocol"},
 "a82e39eb": {"dfnID":"a82e39eb","dfnText":"SPARQL Results JSON","external":true,"refSections":[{"refs":[{"id":"ref-for-sparql-results-json"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-sparql-results-json\u2460"}],"title":"2.3.1. initial Event"},{"refs":[{"id":"ref-for-sparql-results-json\u2461"}],"title":"2.3.3. update Event"}],"url":"https://www.w3.org/TR/sparql11-results-json/#sparql-results-json"},
 "b1247b84": {"dfnID":"b1247b84","dfnText":"SPARQL Protocol service","external":true,"refSections":[{"refs":[{"id":"ref-for-sparql-protocol-service"}],"title":"1. Introduction"}],"url":"https://www.w3.org/TR/sparql11-protocol/#sparql-protocol-service"},
-"c5450140": {"dfnID":"c5450140","dfnText":"server-sent events","external":true,"refSections":[{"refs":[{"id":"ref-for-server-sent-events"},{"id":"ref-for-server-sent-events\u2460"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-server-sent-events\u2461"}],"title":"1.1. Terminology"},{"refs":[{"id":"ref-for-server-sent-events\u2462"},{"id":"ref-for-server-sent-events\u2463"}],"title":"2. SPARQL Incremental Protocol"},{"refs":[{"id":"ref-for-server-sent-events\u2464"},{"id":"ref-for-server-sent-events\u2465"}],"title":"2.1. Content Negotiation"},{"refs":[{"id":"ref-for-server-sent-events\u2466"},{"id":"ref-for-server-sent-events\u2467"}],"title":"2.2. Events Semantics"},{"refs":[{"id":"ref-for-server-sent-events\u2468"}],"title":"2.3. Events JSON"},{"refs":[{"id":"ref-for-server-sent-events\u2460\u24ea"}],"title":"2.4. Events XML"},{"refs":[{"id":"ref-for-server-sent-events\u2460\u2460"}],"title":"2.5. Events CSV and TSV"},{"refs":[{"id":"ref-for-server-sent-events\u2460\u2461"}],"title":"2.6. Events RDF"}],"url":"https://html.spec.whatwg.org/multipage/#server-sent-events"},
+"c5450140": {"dfnID":"c5450140","dfnText":"server-sent events","external":true,"refSections":[{"refs":[{"id":"ref-for-server-sent-events"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-server-sent-events\u2460"}],"title":"2.1. Content Negotiation"}],"url":"https://html.spec.whatwg.org/multipage/#server-sent-events"},
 "error": {"dfnID":"error","dfnText":"error","external":false,"refSections":[],"url":"#error"},
-"incremental-result-stream": {"dfnID":"incremental-result-stream","dfnText":"Incremental Result Stream","external":false,"refSections":[{"refs":[{"id":"ref-for-incremental-result-stream"}],"title":"1. Introduction"}],"url":"#incremental-result-stream"},
-"incremental-sparql-query": {"dfnID":"incremental-sparql-query","dfnText":"Incremental SPARQL Query","external":false,"refSections":[{"refs":[{"id":"ref-for-incremental-sparql-query"}],"title":"1.1. Terminology"}],"url":"#incremental-sparql-query"},
-"incremental-sparql-service": {"dfnID":"incremental-sparql-service","dfnText":"Incremental SPARQL Service","external":false,"refSections":[{"refs":[{"id":"ref-for-incremental-sparql-service"}],"title":"2.1. Content Negotiation"},{"refs":[{"id":"ref-for-incremental-sparql-service\u2460"},{"id":"ref-for-incremental-sparql-service\u2461"},{"id":"ref-for-incremental-sparql-service\u2462"},{"id":"ref-for-incremental-sparql-service\u2463"},{"id":"ref-for-incremental-sparql-service\u2464"}],"title":"2.2. Events Semantics"},{"refs":[{"id":"ref-for-incremental-sparql-service\u2465"}],"title":"2.7. Service Description"},{"refs":[{"id":"ref-for-incremental-sparql-service\u2466"}],"title":"3.1.2. sip:Processing"},{"refs":[{"id":"ref-for-incremental-sparql-service\u2467"}],"title":"3.1.4. sip:UpToDate"},{"refs":[{"id":"ref-for-incremental-sparql-service\u2468"}],"title":"3.2.4. sip:supportsLastEventID"},{"refs":[{"id":"ref-for-incremental-sparql-service\u2460\u24ea"}],"title":"3.2.7. sip:timestamp"}],"url":"#incremental-sparql-service"},
 "initial": {"dfnID":"initial","dfnText":"initial","external":false,"refSections":[],"url":"#initial"},
 "processing": {"dfnID":"processing","dfnText":"processing","external":false,"refSections":[],"url":"#processing"},
 "up-to-date": {"dfnID":"up-to-date","dfnText":"up-to-date","external":false,"refSections":[],"url":"#up-to-date"},
@@ -3677,9 +3365,7 @@ function genLinkingSyntaxes(dfn) {
 "use strict";
 {
 let refsData = {
-"#incremental-result-stream": {"displayText":"incremental result stream","export":true,"for_":[],"level":"","normative":true,"shortname":"sparql-1-1-incremental-protocol","spec":"sparql-1-1-incremental-protocol","status":"local","text":"incremental result stream","type":"dfn","url":"#incremental-result-stream"},
-"#incremental-sparql-query": {"displayText":"incremental sparql query","export":true,"for_":[],"level":"","normative":true,"shortname":"sparql-1-1-incremental-protocol","spec":"sparql-1-1-incremental-protocol","status":"local","text":"incremental sparql query","type":"dfn","url":"#incremental-sparql-query"},
-"#incremental-sparql-service": {"displayText":"incremental sparql service","export":true,"for_":[],"level":"","normative":true,"shortname":"sparql-1-1-incremental-protocol","spec":"sparql-1-1-incremental-protocol","status":"local","text":"incremental sparql service","type":"dfn","url":"#incremental-sparql-service"},
+"https://html.spec.whatwg.org/multipage/#event-stream": {"displayText":"event stream","export":true,"for_":[],"level":"","normative":true,"shortname":"html","spec":"html","status":"anchor-block","text":"event stream","type":"dfn","url":"https://html.spec.whatwg.org/multipage/#event-stream"},
 "https://html.spec.whatwg.org/multipage/#server-sent-events": {"displayText":"server-sent events","export":true,"for_":[],"level":"","normative":true,"shortname":"html","spec":"html","status":"anchor-block","text":"server-sent events","type":"dfn","url":"https://html.spec.whatwg.org/multipage/#server-sent-events"},
 "https://www.w3.org/TR/sparql11-protocol/#sparql-protocol": {"displayText":"SPARQL Protocol","export":true,"for_":[],"level":"","normative":true,"shortname":"sparql11-protocol","spec":"sparql11-protocol","status":"anchor-block","text":"sparql protocol","type":"dfn","url":"https://www.w3.org/TR/sparql11-protocol/#sparql-protocol"},
 "https://www.w3.org/TR/sparql11-protocol/#sparql-protocol-service": {"displayText":"SPARQL Protocol service","export":true,"for_":[],"level":"","normative":true,"shortname":"sparql11-protocol","spec":"sparql11-protocol","status":"anchor-block","text":"sparql protocol service","type":"dfn","url":"https://www.w3.org/TR/sparql11-protocol/#sparql-protocol-service"},
