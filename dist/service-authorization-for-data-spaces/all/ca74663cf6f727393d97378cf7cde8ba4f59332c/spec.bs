@@ -1,0 +1,722 @@
+<pre class='metadata'>
+Title: Service Authorization for Data Spaces
+Shortname: SA4DS
+Level: 0
+Status: LD
+Editor: Maarten Vandenbrande, Ghent University - imec http://idlab.ugent.be/, maarten.vandenbrande@ugent.be
+Repository: https://github.com/SolidLabResearch/uma-service-spec
+Abstract: This is a specification for adding authorization on services with UMA. This spec defines an authorization abstraction layer over streams and non-HTTP based protocols.
+Markup Shorthands: markdown yes, css no
+Local Boilerplate: logo yes
+Canonical URL: _ORCHESTRATOR_CURRENT_BUILD_FULL_LINK_
+Previous Version: _ORCHESTRATOR_PREVIOUS_BUILD_FULL_LINK_
+</pre>
+
+Introduction {#introduction}
+=============================
+
+Modern distributed systems increasingly rely on *continuous* or *session-based*
+service interactions—spanning data streams, message brokers, IoT telemetry, or
+custom transport protocols. Traditional authorization frameworks like OAuth 2.0
+and UMA 2.0 primarily target discrete, HTTP-based request/response exchanges.
+The **Service Authorization for Data Spaces (SA4DS)** extends A4DS with a simple
+mechanism for maintaining (continuous) access authorization to non-HTTP services,
+including streaming resources, while preserving UMA’s policy-driven and
+decentralized properties. Throughout this document, “stream” is used as a
+shorthand for these long-lived service interactions. SA4DS does not require clients to understand or request fine-grained
+authorization semantics; such semantics are optional and Resource
+Server–defined.
+
+This document defines:
+
+* An HTTP control interface on the Resource Server (RS) for requesting
+    *service tokens* that represent authorization for streams and non-HTTP services.
+* The expected interaction between clients, the RS, and the UMA Authorization
+    Server (AS).
+* Generic enforcement behavior for service-oriented transports (SSE, WebRTC,
+    MQTT, Kafka, custom sockets, etc.).
+
+Terminology {#terminology}
+==========================
+
+This specification reuses terms from
+[[!oauth20]], [[!uma-fed]], [[!uma-grant]], and
+[[!a4ds]].
+
+This specification also relies on JSON [[!json]], JWT [[!jwt]], bearer token
+usage [[!bearer]], OAuth token introspection [[!introspection]], HTTP Link
+headers [[!link-header]], HTTP semantics [[!http-semantics]], HTTP caching
+[[!http-caching]], well-known URIs [[!wk-uri]], Server-Sent Events
+[[!eventsource]], WebSockets [[!websockets]], TLS [[!tls]], mutual-TLS OAuth
+client authentication and certificate-bound access tokens [[!mtls]], and DPoP
+[[!dpop]] where those mechanisms are used by a deployment.
+
+Additional terms:
+
+* **Service Resource** — a service endpoint whose access semantics are continuous
+    or non-HTTP based (e.g., a data stream, message topic, or telemetry channel).
+* **Service Token** — a short-lived access token issued by the RS that
+    represents the permissions granted by a valid UMA RPT for one or more
+    Service Resources hosted by that RS.
+* **Service Token Format** — an RS-defined string identifying the format or
+    validation profile of a Service Token, such as an opaque token, a JWT, or a
+    proof-of-possession-bound token. The concrete token representation and
+    validation profile are implementation-specific.
+* **Service Token Endpoint** — an HTTP endpoint on the RS that exchanges a valid
+    UMA Requesting Party Token (RPT) for a short-lived Service Token that can be
+    used to initiate or maintain access to a Service Resource.
+* **Authorization Event Stream** — an HTTP event stream on the RS through which
+    the RS sends authorization events for an authorization session to the
+    client. The Authorization Event Stream is separate from the Service
+    Resource data channel.
+* **Authorization Session ID** — an RS-issued identifier for the authorization
+    session binding a series of Service Tokens and authorization update
+    requests.
+* **Authorization Session Token** — an RS-issued credential used by the client
+    to authenticate to RS endpoints that manage an authorization session. The
+    Authorization Session Token is not issued by the AS.
+
+
+Service Token Endpoint {#endpoint}
+=====================================
+
+The Service Token Endpoint enables a client to exchange a valid UMA Requesting
+Party Token (RPT) for a short-lived Service Token representing the permissions
+granted by the RPT for Service Resources hosted by the Resource Server (RS).
+The Service Token Endpoint is hosted by the RS.
+
+Endpoint and method {#endpoint-and-method}
+-------------------
+
+The Service Token Endpoint:
+
+* MUST support HTTP `POST`.
+* MUST accept JSON request bodies encoded as `application/json`.
+* MUST return successful responses encoded as `application/json`.
+* MUST be discoverable as described in [[#discovery]].
+
+Request {#service-token-endpoint-request}
+-------
+
+The Service Token Endpoint has two request modes:
+
+* initial Service Token request, where no authorization session exists yet; and
+* authorization session update or refresh, where the client already has an
+    Authorization Session Token.
+
+For an initial Service Token request, the client MUST send:
+
+* an `Authorization` request header with a `Bearer` RPT; and
+* if a request body is present, a `Content-Type` request header set to
+    `application/json`.
+
+The request body for an initial Service Token request MAY be omitted. If present,
+the request body MAY be an empty JSON object. The
+client does not send `resource_url`, `resource_scopes`, or `access_description`
+to the Service Token Endpoint. The RS MUST derive the Service Resource
+permissions represented by the Service Token from the validated RPT. It MUST
+include only permissions for Service Resources hosted by that RS.
+
+For an authorization session update or refresh request, the client MUST send:
+
+* an `Authorization` request header with a `Bearer` RPT;
+* a `Content-Type` request header set to `application/json`; and
+* a JSON request body with an `authorization_session_token` member containing
+    the Authorization Session Token for the session being updated or refreshed.
+
+The RS MUST validate that the RPT is valid before issuing a Service Token. The
+validation mechanism is deployment-specific and can include introspection with
+the AS. For authorization session update or refresh requests, the RS MUST
+validate that the Authorization Session Token authenticates the authorization
+session being updated or refreshed.
+
+The RS MUST verify that the presented RPT authorizes the full permission set
+needed for the service session. A Service Token issued for an existing
+authorization session MUST represent the complete currently authorized
+permission set for that session; its permissions replace, rather than merely
+supplement, the permissions represented by the previous Service Token.
+
+Response {#service-token-endpoint-response}
+--------
+
+On success, the RS MUST return `200 OK` with a JSON response body containing:
+
+* `service_token` (required, string): A short-lived token issued by the RS that
+    the client presents on the service channel.
+* `service_token_format` (required, string): An RS-defined identifier for the
+    Service Token format or validation profile. This specification does not
+    define a registry or fixed set of values.
+* `expires_in` (required, positive integer): The lifetime of the issued Service
+    Token in seconds, measured from the time the response is generated. Its value
+    MUST reflect the expiration bound defined in [[#validation]].
+* `authorization_session_id` (required, string): An Authorization Session ID
+    identifying the ongoing authorization session. If no authorization session
+    exists for the request, the RS MUST create one.
+* `authorization_session_token` (required when a new authorization session is
+    created, optional otherwise, string): The Authorization Session Token for
+    the session. If present in a response for an existing session, it replaces
+    the previous Authorization Session Token.
+* `authorization_events` (optional, string): The absolute URL of the RS's
+    Authorization Event Stream for the authorization session. If present, the
+    client MAY use this URL with the Authorization Session Token to receive
+    authorization events for the session.
+
+The client uses `service_token` as a bearer or proof-of-possession credential
+when initiating the service channel. To maintain continuous access, the client
+MUST refresh the Service Token before it expires by obtaining or reusing a valid
+RPT and calling the Service Token Endpoint again with the Authorization Session
+Token in the request body.
+
+A successful authorization session update or refresh at the Service Token
+Endpoint proves to the RS that the client remains authorized for the service
+session. This specification does not require the client to re-authorize on an
+existing Service Resource connection after that endpoint call.
+
+When accepting a Service Token on a Service Resource connection, the RS MUST
+associate that connection with the corresponding authorization session. After a
+successful update or refresh, the RS MUST apply the refreshed authorization
+state to Service Resource connections associated with that session. The client
+does not need to present the newly issued Service Token again on those existing
+connections.
+
+The RS MAY rotate the Authorization Session Token by returning a new
+`authorization_session_token` member in any successful Service Token response.
+When a response contains an `authorization_session_token` for an existing
+session, the client MUST use the new token for future requests authenticated to
+that authorization session. The RS SHOULD allow a short overlap window during
+which the previous Authorization Session Token remains valid for in-flight
+requests.
+
+The RS MUST include `Cache-Control: no-store` in successful responses containing
+Service Tokens or Authorization Session Tokens. Clients and intermediaries MUST
+NOT store these responses.
+
+Errors {#service-token-endpoint-errors}
+------
+
+If a required request body is missing, is not valid JSON, or does not contain
+the required members, the RS MUST respond with `400 Bad Request`. If the request
+body is omitted for an initial Service Token request, the omission is not an
+error.
+
+If no valid RPT is provided for an initial, update, or refresh Service Token
+request, the RS MUST respond with `401 Unauthorized`. If the RS has sufficient
+context to identify permissions that the client needs, the response SHOULD
+include an UMA `WWW-Authenticate` header containing a permission ticket (e.g.,
+with an `as_uri` and `ticket`).
+
+If the RPT in an update or refresh request does not authorize the full permission
+set needed for the service session, the RS MUST respond with `401 Unauthorized`
+and an UMA `WWW-Authenticate` header containing a permission ticket for the
+required permissions.
+
+If the Authorization Session Token is missing, invalid, expired, or does not
+authenticate the authorization session being updated, the RS MUST respond with
+`401 Unauthorized`.
+
+Authorization Event Stream {#authorization-event-stream}
+=====================================
+
+The Authorization Event Stream enables the RS to notify a client that the
+authorization state of a session has changed, without embedding authorization
+control messages in the Service Resource data channel. This allows the same
+authorization update mechanism to be used with WebSockets, SSE, databases,
+message brokers, custom sockets, and other service transports.
+
+The Authorization Event Stream is hosted by the RS. The RS MUST NOT send Service
+Resource data over the Authorization Event Stream.
+
+Event stream connection {#authorization-event-stream-connection}
+-------------------
+
+The Authorization Event Stream endpoint:
+
+* MUST support HTTP `GET`.
+* MUST support `text/event-stream` responses as defined by Server-Sent Events.
+* MUST require an `Authorization` request header with a valid Authorization
+    Session Token.
+* MUST only send events for the authorization session authenticated by that
+    token.
+
+The `authorization_events` URL is an RS-defined absolute URL for an
+authorization session. Clients MUST treat the URL as opaque and MUST NOT
+construct authorization event stream URLs from an Authorization Session ID.
+
+If the Authorization Session Token is missing, invalid, expired, or does not
+authenticate the authorization session associated with the event stream URL, the
+RS MUST respond with `401 Unauthorized`.
+
+The client MAY connect to the Authorization Event Stream after receiving a
+Service Token response containing an `authorization_events` URL and an
+Authorization Session Token. Refreshing a Service Token does not require the
+client to reconnect the Authorization Event Stream unless the RS closes the
+stream or rejects the current Authorization Session Token.
+
+Authorization events {#authorization-events}
+-------------------
+
+Each authorization event MUST contain an SSE `event` field identifying the
+authorization event type and an SSE `data` field containing a UTF-8 JSON object.
+The RS SHOULD include an SSE `id` field on each authorization event. Event IDs
+MUST be unique within an authorization session and MUST be ordered according to
+the order in which the RS generated the events for that session. If the client
+reconnects with a `Last-Event-ID` value, the RS SHOULD replay authorization
+events generated after that event ID when replay is still available. If replay
+is not available, the RS SHOULD require the client to refresh the Service Token
+or reconnect the service session.
+
+When the RS rotates an Authorization Session Token, it SHOULD continue accepting
+the previous Authorization Session Token for the overlap window described in
+[[#service-token-endpoint-response]] on the Authorization Event Stream and
+Service Token Endpoint. After the overlap window ends, the RS MAY close event
+streams authenticated with the previous Authorization Session Token or require
+the client to reconnect using the new token.
+
+Each event object MAY contain:
+
+* `authorization_session_id` (optional, string): The Authorization Session ID to
+    which the event applies.
+
+This specification defines the following event types:
+
+* `authorization_required`: The current session does not authorize a requested
+    operation. The event object MUST include a `ticket` member containing an UMA
+    permission ticket.
+* `token_refresh_required`: The client needs to refresh the Service Token for
+    the session because the current Service Token is expired, is about to expire,
+    the underlying authorization is no longer active, or the RS requires a fresh
+    authorization check. The event object MUST include a `ticket` member
+    containing an UMA permission ticket. The event object MAY include
+    `expires_in`, an integer number of seconds after which the current Service
+    Token will no longer be accepted.
+* `session_terminated`: The RS has terminated the authorization state for the
+    session. The event object MAY include `reason`, a string indicating why the
+    session was terminated.
+
+When receiving `authorization_required`, the client SHOULD use the provided UMA
+permission ticket to obtain a fresh RPT from the AS, then call the Service Token
+Endpoint with the fresh RPT and the Authorization Session Token.
+
+When receiving `token_refresh_required`, the client SHOULD call the Service
+Token Endpoint before the current Service Token expires, using either an
+existing valid RPT that authorizes the full permission set needed for the
+service session or a fresh RPT obtained from the AS using the provided
+permission ticket. The RS includes the ticket so that the client can obtain a
+fresh RPT immediately, but the client MAY ignore the ticket when it already has
+a suitable RPT. After sending `token_refresh_required`, the RS MAY continue
+sending Service Resource data for a grace period, withhold Service Resource data
+until the client refreshes, or terminate the service connection immediately,
+according to local policy and transport constraints.
+
+When receiving `session_terminated`, the client MUST stop using Service Tokens
+for that session. The RS MUST stop sending Service Resource data and reject
+further service operations for that session. The RS MUST also terminate, or
+otherwise make unusable, all Service Resource connections associated with that
+session.
+
+Discovery {#discovery}
+=====================================
+
+The RS MUST make the Service Token Endpoint discoverable:
+
+* via a `Link` header (when the Service Resource is HTTP-based), using
+    `rel="https://spec.knows.idlab.ugent.be/service-authorization-for-data-spaces/service-token-endpoint"`.
+* via the `/.well-known/sa4ds-configuration` configuration document on the RS, by
+    including a `service_token_endpoint` member.
+
+The RS MUST make an Authorization Event Stream URL discoverable only by
+returning an `authorization_events` member in a successful Service Token
+response. The returned URL is specific to the authorization session.
+
+When the Service Resource is HTTP-based and the client does not present a valid
+Service Token, the RS SHOULD combine authorization challenge and endpoint
+discovery in the same `401 Unauthorized` response. The response SHOULD include
+an UMA `WWW-Authenticate` header containing a permission ticket for the
+requested Service Resource and scopes, and a `Link` header identifying the
+Service Token Endpoint.
+
+ISSUE: /.well-known/sa4ds-configuration is not yet registered.
+
+Non-normative discovery examples are provided in [flow examples](#flow-examples).
+
+Flow (Non-normative) {#architecture}
+=====================================
+
+<img src="uml/de6014dfd473edfd31492798a95333ce88268f88.svg" alt="PlantUML Diagram" no-autosize>
+
+The numbered actions in the diagram correspond to the following steps:
+
+1. Client → RS: The client discovers a protected Service Resource (e.g., by attempting to access it, or by out-of-band discovery depending on the transport).
+2. RS → Client: If no valid token is presented, the RS returns `401 Unauthorized` with an UMA permission ticket and discovery information (e.g., the Authorization Server `as_uri` and the Service Token Endpoint).
+3. Client → AS: The client obtains or refreshes an RPT from the AS using the UMA ticket (UMA details are out of scope for this specification).
+4. Client → Service Token Endpoint: The client requests a Service Token by presenting the RPT. The RS introspects the RPT at the AS, derives the Service Resource permissions granted by it, creates an authorization session, and returns a short-lived `service_token`, an `authorization_session_id`, an `authorization_session_token`, and optionally an `authorization_events` URL.
+5. Client ↔ RS: The client may connect to the Authorization Event Stream URL using the Authorization Session Token.
+6. Client ↔ Service Resource: The client starts (or maintains) the service channel, presenting the `service_token` using transport-specific mechanisms.
+7. Client ↔ RS/AS/Service Token Endpoint: If a later service operation requires additional authorization, the RS sends `authorization_required` on the Authorization Event Stream with a permission ticket. The client obtains a fresh RPT from the AS using that ticket, then calls the Service Token Endpoint with the fresh RPT and the Authorization Session Token. If authorized, the RS returns an updated Service Token representing the complete permission set for the same authorization session and MAY rotate the Authorization Session Token.
+8. RS ↔ AS/Client/Service Token Endpoint: The RS enforces continuous authorization through expiry, validation, and revocation. If renewal is needed and the Authorization Event Stream is active for the affected session, the RS sends `token_refresh_required` with a permission ticket so the client can obtain an RPT if needed and call the Service Token Endpoint. A client can also refresh without the Authorization Event Stream by refreshing the Service Token before the `expires_in` lifetime elapses. If authorization fails and cannot be refreshed, the RS terminates the service channel.
+
+<span id="flow-examples"></span>
+
+The following examples illustrate a complete flow from discovery to starting a
+service channel, extending the session with an additional scope, and refreshing
+its authorization.
+
+**1. Discovery:** Accessing the Service Resource (HTTP-based)
+
+<div class="example">
+```http
+GET /service_1 HTTP/1.1
+Host: rs.example.org
+```
+</div>
+
+**2. Get ticket:** RS challenges the client with an UMA permission ticket (+ endpoint discovery)
+
+<div class="example">
+```http
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: UMA as_uri="https://as.example.org", ticket="eyJhbGciOi..."
+Link: <https://rs.example.org/service/tokens>; rel="https://spec.knows.idlab.ugent.be/service-authorization-for-data-spaces/service-token-endpoint"
+```
+</div>
+
+**2a. Discovery (alternative):** Discovering the Service Token Endpoint via well-known configuration
+
+<div class="example">
+```http
+GET /.well-known/sa4ds-configuration HTTP/1.1
+Host: rs.example.org
+```
+</div>
+
+<div class="example">
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "service_token_endpoint": "https://rs.example.org/service/tokens"
+}
+```
+</div>
+
+**3. RPT:** Obtaining an RPT from the AS for connection-level access (UMA flow; details depend on UMA deployment)
+
+<div class="example" id="example-initial-rpt-request">
+```http
+POST /token HTTP/1.1
+Host: as.example.org
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Auma-ticket&ticket=eyJhbGciOi...
+```
+</div>
+
+<div class="example" id="example-initial-rpt-response">
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+
+{
+  "access_token": "eyJhbGciOi...<RPT>...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+</div>
+
+**4. Service Token:** Exchanging an RPT for a connection-level Service Token
+
+<div class="example" id="example-initial-service-token-request">
+```http
+POST /service/tokens HTTP/1.1
+Host: rs.example.org
+Authorization: Bearer eyJhbGciOi...<RPT>...
+Content-Type: application/json
+
+{}
+```
+</div>
+
+<div class="example" id="example-service-token-response">
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+
+{
+  "service_token": "eyJhbGciOi...<service-token>...",
+  "service_token_format": "jwt",
+  "expires_in": 60,
+  "authorization_session_id": "a91e45a2-...",
+  "authorization_session_token": "eyJhbGciOi...<authorization-session-token>...",
+  "authorization_events": "https://rs.example.org/service/authorization-events/evt-f5d2"
+}
+```
+</div>
+
+**5. Authorization events:** Connecting to the Authorization Event Stream
+
+<div class="example">
+```http
+GET /service/authorization-events/evt-f5d2 HTTP/1.1
+Host: rs.example.org
+Accept: text/event-stream
+Authorization: Bearer eyJhbGciOi...<authorization-session-token>...
+```
+</div>
+
+<div class="example">
+```http
+HTTP/1.1 200 OK
+Content-Type: text/event-stream
+```
+</div>
+
+**6. Start service channel:** Starting a service channel using the Service Token (WebSocket handshake)
+
+<div class="example">
+```http
+GET /service_1/ws HTTP/1.1
+Host: rs.example.org
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+Sec-WebSocket-Version: 13
+Authorization: Bearer eyJhbGciOi...<service-token>...
+```
+</div>
+
+<div class="example">
+```http
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
+```
+</div>
+
+**7. Service operation:** Requesting an operation that requires an additional scope
+
+The client sends the following transport-specific message over the established
+service channel:
+
+<div class="example" id="example-additional-scope-operation">
+```json
+{
+  "action": "subscribe",
+  "event": "orders"
+}
+```
+</div>
+
+**7a. Additional scope required:** RS sends an authorization event when the operation requires more authorization
+
+<div class="example" id="example-authorization-required-event">
+```text
+event: authorization_required
+id: evt-7b31
+data: {"authorization_session_id":"a91e45a2-...","ticket":"eyJhbGciOi..."}
+
+```
+</div>
+
+**7b. RPT:** Obtaining a fresh RPT using the ticket from the `authorization_required` event
+
+<div class="example" id="example-upgrade-rpt-request">
+```http
+POST /token HTTP/1.1
+Host: as.example.org
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Auma-ticket&ticket=eyJhbGciOi...
+```
+</div>
+
+<div class="example" id="example-upgrade-rpt-response">
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+
+{
+  "access_token": "eyJhbGciOi...<fresh_RPT>...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+</div>
+
+**7c. Service Token (update):** Exchanging a fresh RPT for an updated Service Token
+
+<div class="example" id="example-update-service-token-request">
+```http
+POST /service/tokens HTTP/1.1
+Host: rs.example.org
+Authorization: Bearer eyJhbGciOi...<fresh_RPT>...
+Content-Type: application/json
+
+{
+  "authorization_session_token": "eyJhbGciOi...<authorization-session-token>..."
+}
+```
+</div>
+
+<div class="example" id="example-update-service-token-response">
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+
+{
+  "service_token": "eyJhbGciOi...<updated-service-token>...",
+  "service_token_format": "jwt",
+  "expires_in": 60,
+  "authorization_session_id": "a91e45a2-...",
+  "authorization_session_token": "eyJhbGciOi...<rotated-authorization-session-token>...",
+  "authorization_events": "https://rs.example.org/service/authorization-events/evt-f5d2"
+}
+```
+</div>
+
+After receiving the updated Service Token, the client continues the service
+channel. A transport profile can define when the client needs to present the
+updated Service Token on an existing channel or re-establish the channel.
+
+**8a. Enforcement:** RS determines that the authorization associated with the session is no longer active
+
+<div class="example">
+```http
+POST /introspect HTTP/1.1
+Host: as.example.org
+Authorization: Basic <rs-credentials>
+Content-Type: application/x-www-form-urlencoded
+
+token=eyJhbGciOi...<RPT>...
+```
+</div>
+
+<div class="example">
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "active": false
+}
+```
+</div>
+
+If introspection returns `active: true`, the RS continues the session without
+sending a refresh event.
+
+**8b. Token refresh required:** RS signals that the session needs a refreshed Service Token
+
+<div class="example" id="example-token-refresh-required-event">
+```text
+event: token_refresh_required
+id: evt-8c42
+data: {"authorization_session_id":"a91e45a2-...","ticket":"eyJhbGciOi...","expires_in":10}
+
+```
+</div>
+
+**8c. RPT:** Obtaining a fresh RPT using the ticket from the `token_refresh_required` event
+
+<div class="example" id="example-refresh-rpt-request">
+```http
+POST /token HTTP/1.1
+Host: as.example.org
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Auma-ticket&ticket=eyJhbGciOi...
+```
+</div>
+
+<div class="example" id="example-refresh-rpt-response">
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+
+{
+  "access_token": "eyJhbGciOi...<refreshed_RPT>...",
+  "token_type": "Bearer",
+  "expires_in": 3600
+}
+```
+</div>
+
+**8d. Service Token (refresh):** Refreshing the session after `token_refresh_required`
+
+<div class="example" id="example-refresh-updated-service-token-request">
+```http
+POST /service/tokens HTTP/1.1
+Host: rs.example.org
+Authorization: Bearer eyJhbGciOi...<refreshed_RPT>...
+Content-Type: application/json
+
+{
+  "authorization_session_token": "eyJhbGciOi...<rotated-authorization-session-token>..."
+}
+```
+</div>
+
+<div class="example" id="example-refresh-updated-service-token-response">
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+
+{
+  "service_token": "eyJhbGciOi...<refreshed-service-token>...",
+  "service_token_format": "jwt",
+  "expires_in": 60,
+  "authorization_session_id": "a91e45a2-...",
+  "authorization_session_token": "eyJhbGciOi...<new-authorization-session-token>...",
+  "authorization_events": "https://rs.example.org/service/authorization-events/evt-f5d2"
+}
+```
+</div>
+
+Token Validation and Lifetimes {#validation}
+=====================================
+
+The RS MUST validate the RPT before issuing a Service Token. The validation
+mechanism is deployment-specific and can include OAuth token introspection with
+the AS. When the `service_token_format` identifies a JWT-based Service Token,
+the RS MUST embed an `exp` claim and a unique `jti` in each Service Token.
+
+A Service Token's expiration time MUST NOT be later than the earliest explicit
+expiration time of the presented RPT or of any authorization state on which the
+Service Token depends. The RS MUST shorten the Service Token lifetime when
+necessary to satisfy this requirement.
+
+The RS MAY introspect authorization state during a session or process revocation
+notifications from the AS. If the RS determines that the current Service Token
+must be refreshed and an Authorization Event Stream is active for the affected
+session, the RS MAY send a `token_refresh_required` event before rejecting
+further service operations. The RS MAY also reject further service operations
+immediately.
+
+Clients MUST NOT rely on the Authorization Event Stream as the only refresh
+trigger. A client can refresh without using the Authorization Event Stream by
+obtaining or reusing a valid RPT and calling the Service Token Endpoint with the
+RPT in the `Authorization` header and the Authorization Session Token in the
+request body before the current Service Token expires.
+
+The RS MUST terminate the service connection when:
+
+* the current Service Token is expired and the client has not refreshed it;
+* the AS notifies the RS of revocation;
+* validation indicates that authorization is inactive and the RS determines
+    that refresh is not possible or has not completed in time.
+
+Security Considerations {#security}
+=====================================
+
+All communications MUST occur over TLS. Tokens SHOULD be proof-of-possession
+(mTLS or DPoP) bound when the selected transport can carry the required proof.
+Service Tokens MUST be short-lived, satisfy the expiration bound in
+[[#validation]], and be audience-restricted only to the RS.
