@@ -1488,9 +1488,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version ac5ea272d, updated Fri Dec 6 15:45:15 2024 -0800" name="generator">
-  <link href="https://spec.knows.idlab.ugent.be/claims-network/all/ee2812c025611baf4b5caa9691c0194a6d6febda" rel="canonical">
-  <meta content="520337ea0d6eaad57862497c47cdfb8af8e4d3a9" name="revision">
+  <meta content="Bikeshed version e0b165ae4, updated Mon Nov 2 15:16:49 2026 -0800" name="generator">
+  <link href="https://spec.knows.idlab.ugent.be/claims-network/all/525fab353ab0a18b4cceb67b69b7e9d16645c808" rel="canonical">
+  <meta content="3bd9fb384293b44c01387e9c84e88d3dc4e53f21" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
 .scr {
@@ -1790,7 +1790,7 @@ pre .property::before, pre .property::after {
 </style>
 <style>/* Boilerplate: style-counters */
 body {
-    counter-reset: example figure issue;
+    counter-reset: example figure issue table;
 }
 .issue {
     counter-increment: issue;
@@ -1807,7 +1807,7 @@ body {
 }
 .invalid.example:not(.no-marker)::before,
 .illegal.example:not(.no-marker)::before {
-    content: "Invalid Example" counter(example);
+    content: "Invalid Example " counter(example);
 }
 
 figcaption {
@@ -1815,6 +1815,13 @@ figcaption {
 }
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
+}
+
+figure.table figcaption {
+    counter-increment: table;
+}
+figure.table figcaption:not(.no-marker)::before {
+    content: "Table " counter(table) " ";
 }
 </style>
 <style>/* Boilerplate: style-dfn-panel */
@@ -1840,14 +1847,17 @@ figcaption:not(.no-marker)::before {
     height: auto;
     max-height: 500px;
     overflow: auto;
+    margin: 0;
     padding: 0.5em 0.75em;
     font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
     background: var(--dfnpanel-bg);
     color: var(--dfnpanel-text);
     border: outset 0.2em;
     white-space: normal; /* in case it's moved into a pre */
+    inset: auto;
+    position-area: bottom span-right;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
 }
-.dfn-panel:not(.on) { display: none; }
 .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
 .dfn-panel > b { display: block; }
 .dfn-panel a { color: var(--dfnpanel-text); }
@@ -1867,6 +1877,9 @@ figcaption:not(.no-marker)::before {
 .dfn-panel.activated {
     display: inline-block;
     position: fixed;
+    position-area: none;
+    top: auto;
+    right: auto;
     left: 8px;
     bottom: 2em;
     margin: 0 auto;
@@ -1923,7 +1936,8 @@ figcaption:not(.no-marker)::before {
     opacity: 1;
 }
 
-.dfn-paneled[role="button"] { cursor: help; }
+.dfn-paneled { cursor: help; }
+.dfn-paneled > .dfn-panelbutton { all: unset; }
 
 .highlighted {
     animation: target-fade 3s;
@@ -2172,41 +2186,72 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     c-[vm] { color: #cb4b16 } /* Name.Variable.Magic */
     c-[il] { color: #657b83 } /* Literal.Number.Integer.Long */
 }
+
+@media print {
+    /* Darken colors for print that would otherwise print too faintly */
+    c-[c]  { color: #555555 } /* Comment */
+    c-[d]  { color: #555555 } /* Comment.Multiline */
+    c-[cp] { color: #555555 } /* Comment.Preproc */
+    c-[c1] { color: #555555 } /* Comment.Single */
+    c-[cs] { color: #555555 } /* Comment.Special */
+    c-[o]  { color: #222222 } /* Operator */
+    c-[p]  { color: #222222 } /* Punctuation */
+    c-[ow] { color: #222222 } /* Operator.Word */
+    c-[s]  { color: #664400 } /* Literal.String */
+    c-[t]  { color: #664400 } /* Literal.String.Single */
+    c-[u]  { color: #664400 } /* Literal.String.Double */
+    c-[sb] { color: #664400 } /* Literal.String.Backtick */
+    c-[sc] { color: #664400 } /* Literal.String.Char */
+    c-[sd] { color: #664400 } /* Literal.String.Doc */
+    c-[se] { color: #664400 } /* Literal.String.Escape */
+    c-[sh] { color: #664400 } /* Literal.String.Heredoc */
+    c-[si] { color: #664400 } /* Literal.String.Interpol */
+    c-[sx] { color: #664400 } /* Literal.String.Other */
+    c-[sr] { color: #664400 } /* Literal.String.Regex */
+    c-[ss] { color: #664400 } /* Literal.String.Symbol */
+}
 </style>
  <body class="h-entry">
   <div class="head">
-   <p data-fill-with="logo"><a class="logo" href="https://knows.idlab.ugent.be/"> <img alt="KNoWS" height="48" src="logo.png"> </a> </p>
-   <h1 class="p-name no-ref" id="title">Claims Network</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-02-26">26 February 2025</time></span></h2>
+   <p data-fill-with="logo"><a class="logo" href="https://knows.idlab.ugent.be/">
+    <img alt="KNoWS" height="48" src="logo.png">
+</a>
+</p>
+   <h1 class="no-ref p-name" id="title">Claims Network</h1>
+   <h2 class="heading no-num no-ref no-toc settled" id="profile-and-date"><span class="content">Living Document,
+    <time class="dt-updated" datetime="2026-11-03">3 November 2026</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Previous Versions:
-     <dd><a href="https://spec.knows.idlab.ugent.be/claims-network/all/7d31b98df70e8537963b46a2ddd0dc466abb3124" rel="prev">https://spec.knows.idlab.ugent.be/claims-network/all/7d31b98df70e8537963b46a2ddd0dc466abb3124</a>
+     <dd><a href="https://spec.knows.idlab.ugent.be/claims-network/all/3bd9fb384293b44c01387e9c84e88d3dc4e53f21" rel="prev">https://spec.knows.idlab.ugent.be/claims-network/all/3bd9fb384293b44c01387e9c84e88d3dc4e53f21</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/MellonScholarlyCommunication/spec-claims-network/issues/">GitHub</a>
      <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:patrick.hochstenbach@ugent.be">Patrick Hochstenbach</a> (<span class="p-org org">Ghent University Library</span>)
-     <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:hvdsomp@gmail.com">Herbert Van de Sompel</a> (<span class="p-org org">DANS</span>)
+     <dd class="editor h-card p-author vcard"><a class="email fn p-name u-email" href="mailto:patrick.hochstenbach@ugent.be">Patrick Hochstenbach</a> (<span class="org p-org">Ghent University Library</span>)
+     <dd class="editor h-card p-author vcard"><a class="email fn p-name u-email" href="mailto:herbert.vandesompel@surf.nl">Herbert Van de Sompel</a> (<span class="org p-org">SURF</span>)
     </dl>
    </div>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
+   <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a>
+To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 26 February 2025,
-the editors have made this specification available under the <a href="https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
+In addition, as of 3 November 2026,
+the editors have made this specification available under the
+<a href="https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0.
-Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
+Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document.
+</p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
-   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
+   <h2 class="heading no-num no-ref no-toc settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>This document specifies a decentralized claims network.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
-   <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
-   <ol class="toc" role="directory">
+   <h2 class="no-num no-ref no-toc" id="contents">Table of Contents</h2>
+   <ol class="toc">
     <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
     <li><a href="#functional"><span class="secno">2</span> <span class="content">Functional and non-functional requirements</span></a>
     <li><a href="#terminology"><span class="secno">3</span> <span class="content">Terminology</span></a>
@@ -2247,7 +2292,8 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#updated-process-workflow"><span class="secno">8.2</span> <span class="content">Updated process workflow</span></a>
      </ol>
     <li><a href="#verification-service①"><span class="secno">9</span> <span class="content">Verification service</span></a>
-    <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
+    <li><a href="#conformance"><span class="secno"></span> <span class="content">
+    Conformance</span></a>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
      <ol class="toc">
@@ -2257,7 +2303,7 @@ Parts of this work may be from another specification document.  If so, those par
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
-      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Non-Normative References</span></a>
      </ol>
     <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
@@ -2387,7 +2433,8 @@ Parts of this work may be from another specification document.  If so, those par
    <p>
     <strong>Step (1)</strong> The processing workflow in Figure 2 when a researcher, depicted as 
     <tt>Carol</tt>
-    , creates a toot in an <a data-link-type="dfn" href="#academic-social-networking-service" id="ref-for-academic-social-networking-service②">academic social networking service</a> presenting a contribution to her scholarly record. In our example we will use <a href="https://joinmastodon.org">Mastodon</a> as the implementation of such a service. Each claim toot contains at least a URL to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact③">artifact</a> and a references to a Mastodon account of a <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑤">claim bot</a> . An example of such a toot could be:
+    , creates a toot in an <a data-link-type="dfn" href="#academic-social-networking-service" id="ref-for-academic-social-networking-service②">academic social networking service</a> presenting a contribution to her scholarly record. In our example we will use <a href="https://joinmastodon.org">Mastodon</a> as the implementation of such a service. Each claim toot contains at least a URL to an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact③">artifact</a> and a references to a Mastodon account of a <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑤">claim bot</a>
+. An example of such a toot could be:
    </p>
 <pre><tt>I just submitted my first question to the Dutch parliament! 
 https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl</tt>
@@ -2399,7 +2446,7 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl</tt>
     <tt>https://parliament.nl/questions/2025-21-121291</tt>
      we will call the (claim) <a data-link-type="dfn" href="#artifact" id="ref-for-artifact④">artifact</a>.
    </p>
-   <p><strong>Step (2)</strong> A process in the associated with <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑥">claim bot</a> monitors toots that are directed to the Mastodon account of the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑦">claim bot</a>. This process picks up the new toot from Carol.</p>
+   <p><strong>Step (2)</strong> A process in the associated with  <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑥">claim bot</a> monitors toots that are directed to the Mastodon account of the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑦">claim bot</a>. This process picks up the new toot from Carol.</p>
    <p>
     <strong>Step (3)</strong> The process of Step 2, transforms each <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑤">artifact</a> in the toot (<a data-link-type="dfn" href="#claim" id="ref-for-claim⑦">claim</a>) into an <a href="https://www.eventnotifications.net">Event Notifications in Value-Adding Networks</a> (EN) LDN+AS2 
     <tt>Announce</tt>
@@ -2444,11 +2491,14 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl</tt>
     .
    </p>
    <div class="example" id="example-0d9f400e">
-    <a class="self-link" href="#example-0d9f400e"></a> Carol creates a toot on 
+    <a class="self-link" href="#example-0d9f400e"></a>
+Carol creates a toot on 
     <tt>social.edu.nl</tt>
      claiming her the <a data-link-type="dfn" href="#artifact" id="ref-for-artifact⑨">artifact</a> 
     <tt>https://parliament.nl/questions/2025-21-121291</tt>
-    . 
+    .
+
+
 <pre>I just submitted my first question to the Dutch parliament! 
 https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl 
 </pre>
@@ -2575,8 +2625,11 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
    </ul>
    <p>In Example 2, we illustrate the structure of an LDN+AS2 notification corresponding to the toot presented in Example 1.</p>
    <div class="example" id="example-6ae580a1">
-    <a class="self-link" href="#example-6ae580a1"></a> A generated LDN+AS2 notification for the toot in Example 1. 
-<pre class="include-code highlight"><c- p>{</c->
+    <a class="self-link" href="#example-6ae580a1"></a>
+A generated LDN+AS2 notification for the toot in Example 1.
+
+
+<pre class="highlight include-code"><c- p>{</c->
     <c- f>"@context"</c-><c- p>:</c-> <c- u>"https://www.w3.org/ns/activitystreams"</c-><c- p>,</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"urn:uuid:6d21a2ae-df59-40d9-999c-18e19277d21a"</c-><c- p>,</c->
     <c- f>"type"</c-><c- p>:</c-> <c- u>"Announce"</c-><c- p>,</c->
@@ -2609,7 +2662,7 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
    <p>
     The <strong>claim bot to summarizer service</strong> pattern is used by a <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot②③">claim bot</a> to request the generation of descriptive metadata for an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①⓪">artifact</a> at one or more <a data-link-type="dfn" href="#summarizer-service" id="ref-for-summarizer-service①⓪">summarizer services</a>. Example 1, contains an example of such an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①①">artifact</a>: 
     <tt>https://parliament.nl/questions/2025-21-121291</tt>
-    . A <a data-link-type="dfn" href="#summarizer-service" id="ref-for-summarizer-service①①">summarizer service</a> can have many types of implementations such as <a href="https://github.com/zotero/translation-server">Zotero Translation Server</a>, web archives, <a href="https://crossref.org">Crossref</a> clients, web crawlers, AI-driven text analyzers to name a few. What all implementation have in common is that they employ the LDN+AS2 notifications using the Event Notifications protocol to communicate asynchronously with the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot②④">claims bot</a>. Asynchronous messaging enables the <a data-link-type="dfn" href="#summarizer-service" id="ref-for-summarizer-service①②">summarizer service</a> to scale efficiently by executing data extraction algorithms through batch jobs, as opposed to real-time processing.
+    . A   <a data-link-type="dfn" href="#summarizer-service" id="ref-for-summarizer-service①①">summarizer service</a> can have many types of implementations such as <a href="https://github.com/zotero/translation-server">Zotero Translation Server</a>, web archives, <a href="https://crossref.org">Crossref</a> clients, web crawlers, AI-driven text analyzers to name a few. What all implementation have in common is that they employ the LDN+AS2 notifications using the Event Notifications protocol to communicate asynchronously with the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot②④">claims bot</a>. Asynchronous messaging enables the <a data-link-type="dfn" href="#summarizer-service" id="ref-for-summarizer-service①②">summarizer service</a> to scale efficiently by executing data extraction algorithms through batch jobs, as opposed to real-time processing.
    </p>
    <h4 class="heading settled" data-level="5.2.1" id="pattern-claim-bot-summarizer-offer"><span class="secno">5.2.1. </span><span class="content">Offer</span><a class="self-link" href="#pattern-claim-bot-summarizer-offer"></a></h4>
    <p>To request a summary for an <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①②">artifact</a> an LDN2+AS2 notification should be send to the <a data-link-type="dfn" href="#inbox" id="ref-for-inbox①">Inbox</a> of a <a data-link-type="dfn" href="#summarizer-service" id="ref-for-summarizer-service①③">summarizer service</a> with the following properties:</p>
@@ -2675,10 +2728,13 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
    </ul>
    <p>In Example 3, we illustrate the structure of an LDN+AS2 notification that the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot②⑥">claim bot</a> sends to the <a data-link-type="dfn" href="#summarizer-service" id="ref-for-summarizer-service①④">summarizer service</a> pertaining to the <a data-link-type="dfn" href="#claim" id="ref-for-claim①③">claim</a> of Example 1.</p>
    <div class="example" id="example-6174b2ee">
-    <a class="self-link" href="#example-6174b2ee"></a> A generated LDN+AS2 notification for the <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①⑤">artifact</a> 
+    <a class="self-link" href="#example-6174b2ee"></a>
+A generated LDN+AS2 notification for the <a data-link-type="dfn" href="#artifact" id="ref-for-artifact①⑤">artifact</a> 
     <tt>https://parlaiment.nl/questions/2025-21-121291</tt>
-     in Example 1. 
-<pre class="include-code highlight"><c- p>{</c->
+     in Example 1.
+
+
+<pre class="highlight include-code"><c- p>{</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"urn:uuid:urn:uuid:75806b42-41f5-46fb-8519-6e964c93c19e"</c-><c- p>,</c->
     <c- f>"type"</c-><c- p>:</c-> <c- u>"Offer"</c-><c- p>,</c->
     <c- f>"published"</c-><c- p>:</c-> <c- u>"2025-02-02T06:46:01.000Z"</c-><c- p>,</c->
@@ -2793,7 +2849,9 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
      send in Example 3.
    </p>
    <div class="example" id="example-a75a503f">
-    <a class="self-link" href="#example-a75a503f"></a> 
+    <a class="self-link" href="#example-a75a503f"></a>
+
+
     <p>
      An 
      <tt>Accept</tt>
@@ -2801,7 +2859,7 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
      <tt>Offer</tt>
       send in Example 3.
     </p>
-<pre class="include-code highlight"><c- p>{</c->
+<pre class="highlight include-code"><c- p>{</c->
     <c- f>"@context"</c-><c- p>:</c-> <c- u>"https://www.w3.org/ns/activitystreams"</c-><c- p>,</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"urn:uuid:dea5fba6-fcf3-4fb3-a7c5-4052490a79b4"</c-><c- p>,</c->
     <c- f>"type"</c-><c- p>:</c-> <c- u>"Accept"</c-><c- p>,</c->
@@ -2905,7 +2963,9 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
      send in Example 3.
    </p>
    <div class="example" id="example-61f5d565">
-    <a class="self-link" href="#example-61f5d565"></a> 
+    <a class="self-link" href="#example-61f5d565"></a>
+
+
     <p>
      A 
      <tt>Reject</tt>
@@ -2913,7 +2973,7 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
      <tt>Offer</tt>
       send in Example 3.
     </p>
-<pre class="include-code highlight"><c- p>{</c->
+<pre class="highlight include-code"><c- p>{</c->
     <c- f>"@context"</c-><c- p>:</c-> <c- u>"https://www.w3.org/ns/activitystreams"</c-><c- p>,</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"urn:uuid:dea5fba6-fcf3-4fb3-a7c5-4052490a79b4"</c-><c- p>,</c->
     <c- f>"type"</c-><c- p>:</c-> <c- u>"Reject"</c-><c- p>,</c->
@@ -3020,7 +3080,9 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
    </ul>
    <p>In Example 6, we illustrate the structure of an LDN+AS2 notification that the <a data-link-type="dfn" href="#summarizer-service" id="ref-for-summarizer-service③⑥">summarizer service</a> can send to the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot④②">claim bot</a> to announce the summary for the <a data-link-type="dfn" href="#artifact" id="ref-for-artifact②⑥">artifact</a> of Example 3.</p>
    <div class="example" id="example-40c7d441">
-    <a class="self-link" href="#example-40c7d441"></a> 
+    <a class="self-link" href="#example-40c7d441"></a>
+
+
     <p>
      An 
      <tt>Announce</tt>
@@ -3028,7 +3090,7 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
      <tt>Offer</tt>
       send in Example 3.
     </p>
-<pre class="include-code highlight"><c- p>{</c->
+<pre class="highlight include-code"><c- p>{</c->
     <c- f>"@context"</c-><c- p>:</c-> <c- u>"https://www.w3.org/ns/activitystreams"</c-><c- p>,</c->
     <c- f>"id"</c-><c- p>:</c-> <c- u>"urn:uuid:ef99b36a-5896-46ee-b164-2da1467f6a35"</c-><c- p>,</c->
     <c- f>"type"</c-><c- p>:</c-> <c- u>"Announce"</c-><c- p>,</c->
@@ -3054,10 +3116,13 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
      of Example 6.
    </p>
    <div class="example" id="example-ab618da1">
-    <a class="self-link" href="#example-ab618da1"></a> A schema.org summarization service result for Example 6 made available as the Web resource 
+    <a class="self-link" href="#example-ab618da1"></a>
+A schema.org summarization service result for Example 6 made available as the Web resource 
     <tt>https://summary.surf.nl/result/12712-128219.jsonld</tt>
-    . 
-<pre class="include-code highlight"><c- p>{</c->
+    .
+
+
+<pre class="highlight include-code"><c- p>{</c->
   <c- f>"@context"</c-><c- p>:</c-> <c- u>"https://schema.org/"</c-><c- p>,</c->
   <c- f>"id"</c-> <c- p>:</c-> <c- u>"https://parliament.nl/questions/2025-21-121291"</c-><c- p>,</c->
   <c- f>"type"</c-> <c- p>:</c-> <c- u>"http://purl.org/net/xbiblio/csl#post-weblog"</c-><c- p>,</c->
@@ -3096,14 +3161,16 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
     <tt>https://bots.surf.nl/summary/237123-21318.jsonld</tt>
     .
    </p>
-   <div class="example" id="example-7e73afe4">
-    <a class="self-link" href="#example-7e73afe4"></a> 
+   <div class="example" id="example-7bd85ab6">
+    <a class="self-link" href="#example-7bd85ab6"></a>
+
+
     <p>
      An example of a <a data-link-type="dfn" href="#claim-summary" id="ref-for-claim-summary①⓪">claim summary</a> created for the <a data-link-type="dfn" href="#claim" id="ref-for-claim①⑧">claim</a> of Example 1 and the generated metadata summary of Example 7. This <a data-link-type="dfn" href="#claim-summary" id="ref-for-claim-summary①①">claim summary</a> will be published by the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot④⑦">claim bot</a> at URL 
      <tt>https://bots.surf.nl/summary/237123-21318.jsonld</tt>
      .
     </p>
-<pre class="include-code highlight"><c- p>{</c->
+<pre class="highlight include-code"><c- p>{</c->
     <c- f>"@context"</c-> <c- p>:</c-> <c- u>"https://mycontributions.info/contexts/claim.jsonld"</c-><c- p>,</c->
     <c- f>"id"</c-> <c- p>:</c-> <c- u>"urn:uuid:80965c07-59b4-429c-bdf9-50932284425c"</c-><c- p>,</c->
     <c- f>"type"</c-> <c- p>:</c-> <c- u>"Claim"</c-><c- p>,</c->
@@ -3124,8 +3191,10 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
     <c- p>},</c->
     <c- f>"creator"</c-> <c- p>:</c-> <c- p>{</c->
        <c- f>"id"</c-> <c- p>:</c-> <c- u>"https://social.edu.nl/@alice"</c-><c- p>,</c->
+       <c- f>"type"</c-> <c- p>:</c-> <c- u>"Person"</c-><c- p>,</c->
        <c- f>"name"</c-> <c- p>:</c-> <c- u>"Carol Hayes"</c-><c- p>,</c->
-       <c- f>"type"</c-> <c- p>:</c-> <c- u>"Person"</c->
+       <c- f>"claimProfile"</c-><c- p>:</c-> <c- u>"https://productivity.portal.nl/researcher/NL-8390-6171"</c-><c- p>,</c->
+       <c- f>"verificationProfile"</c-><c- p>:</c-> <c- u>"https://profiles.surf.nl/user/2139-31-01"</c->
     <c- p>},</c->
     <c- f>"isBasedOn"</c-> <c- p>:</c-> <c- u>"https://social.edu.nl/@alice/112891078566219289"</c-><c- p>,</c->
     <c- f>"mainEntity"</c-> <c- p>:</c-> <c- u>"https://parliament.nl/questions/2025-21-121291"</c-><c- p>,</c->
@@ -3225,17 +3294,20 @@ https://parliament.nl/questions/2025-21-121291 /cc @logbot@bots.surf.nl
    <p>
     Example 9 provides an example of an 
     <tt>Announce</tt>
-     LDN+AS2 notification sent by the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑤⑤">claim bot</a> using <a data-link-type="dfn" href="#claim-summary" id="ref-for-claim-summary①⑤">claim summary</a> of Example 8 published at 
+      LDN+AS2 notification sent by the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑤⑤">claim bot</a> using <a data-link-type="dfn" href="#claim-summary" id="ref-for-claim-summary①⑤">claim summary</a> of Example 8 published at 
     <tt>https://bots.surf.nl/summary/237123-21318.jsonld</tt>
     .
    </p>
    <div class="example" id="example-a8b20a0a">
-    <a class="self-link" href="#example-a8b20a0a"></a> An 
+    <a class="self-link" href="#example-a8b20a0a"></a>
+An 
     <tt>announce</tt>
      LDN+AS2 notification send by the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑤⑥">claim bot</a> to the <a data-link-type="dfn" href="#activity-log" id="ref-for-activity-log⑧">activity log</a> service to request the addition of the <a data-link-type="dfn" href="#claim-summary" id="ref-for-claim-summary①⑥">claim summary</a> of Example 8 at 
     <tt>https://bots.surf.nl/summary/237123-21318.jsonld</tt>
-     to the log. 
-<pre class="include-code highlight"><c- p>{</c->
+     to the log.
+
+
+<pre class="highlight include-code"><c- p>{</c->
   <c- f>"@context"</c-><c- p>:</c-> <c- u>"https://www.w3.org/ns/activitystreams"</c-><c- p>,</c->
   <c- f>"id"</c-><c- p>:</c-> <c- u>"urn:uuid:535dff96-1082-43b8-b1ce-66933bee768a"</c-><c- p>,</c->
   <c- f>"type"</c-><c- p>:</c-> <c- u>"Announce"</c-><c- p>,</c->
@@ -3360,10 +3432,12 @@ The RDF module is depicted in Figure 5. In the JSON-LD serialization each <a dat
    <ul>
     <li data-md>
      <tt>@carol@social.edu.nl</tt>
-      at the <a data-link-type="dfn" href="#academic-social-networking-service" id="ref-for-academic-social-networking-service②④">academic social networking service</a>; 
+      at the <a data-link-type="dfn" href="#academic-social-networking-service" id="ref-for-academic-social-networking-service②④">academic social networking service</a>;
+
     <li data-md>
      <tt>https://surfconnect.nl/user/1298138</tt>
-      at the <a data-link-type="dfn" href="#verification-service" id="ref-for-verification-service④">verification service</a>; 
+      at the <a data-link-type="dfn" href="#verification-service" id="ref-for-verification-service④">verification service</a>;
+
     <li data-md>
      <p>
       and, 
@@ -3384,7 +3458,7 @@ The RDF module is depicted in Figure 5. In the JSON-LD serialization each <a dat
     <tt>Carol</tt>
     , creates a <a data-link-type="dfn" href="#claim" id="ref-for-claim③①">claim</a> in the <a data-link-type="dfn" href="#academic-social-networking-service" id="ref-for-academic-social-networking-service②⑦">academic social networking service</a> with a reference to the Mastodon account of a <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑥⓪">claim bot</a>.
    </p>
-   <p><strong>Step (2)</strong> A process in the associated with <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑥①">claim bot</a> monitors toots that are directed to the Mastodon account of the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑥②">claim bot</a>. This process picks up the new toot from Carol.</p>
+   <p><strong>Step (2)</strong> A process in the associated with  <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑥①">claim bot</a> monitors toots that are directed to the Mastodon account of the <a data-link-type="dfn" href="#claim-bot" id="ref-for-claim-bot⑥②">claim bot</a>. This process picks up the new toot from Carol.</p>
    <p>
     <strong>Step (3)</strong> The process of Step 2, transforms each <a data-link-type="dfn" href="#artifact" id="ref-for-artifact③①">artifact</a> in the toot (<a data-link-type="dfn" href="#claim" id="ref-for-claim③②">claim</a>) into an <a href="https://www.eventnotifications.net">Event Notifications in Value-Adding Networks</a> (EN) LDN+AS2 
     <tt>Announce</tt>
@@ -3398,21 +3472,37 @@ The RDF module is depicted in Figure 5. In the JSON-LD serialization each <a dat
    <p>TDB</p>
   </main>
   <div data-fill-with="conformance">
-   <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
-   <p> Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology.
+   <h2 class="heading no-num no-ref settled" id="conformance"><span class="content">
+    Conformance</span><a class="self-link" href="#conformance"></a></h2>
+   <p>
+            Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology.
             The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”
             in the normative parts of this document
             are to be interpreted as described in RFC 2119.
             However, for readability,
-            these words do not appear in all uppercase letters in this specification. </p>
-   <p> All of the text of this specification is normative
-            except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">[RFC2119]</a> </p>
-   <p> Examples in this specification are introduced with the words “for example”
-            or are set apart from the normative text with <code>class="example"</code>, like this: </p>
-   <div class="example" id="example-example"><a class="self-link" href="#example-example"></a> This is an example of an informative example. </div>
-   <p> Informative notes begin with the word “Note”
-            and are set apart from the normative text with <code>class="note"</code>, like this: </p>
-   <p class="note" role="note"> Note, this is an informative note.</p>
+            these words do not appear in all uppercase letters in this specification.
+
+        </p>
+   <p>
+            All of the text of this specification is normative
+            except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">[RFC2119]</a>
+
+        </p>
+   <p>
+            Examples in this specification are introduced with the words “for example”
+            or are set apart from the normative text with <code>class="example"</code>, like this:
+
+        </p>
+   <div class="example" id="example-example"><a class="self-link" href="#example-example"></a>
+            This is an example of an informative example.
+        </div>
+   <p>
+            Informative notes begin with the word “Note”
+            and are set apart from the normative text with <code>class="note"</code>, like this:
+
+        </p>
+   <p class="note" role="note">
+            Note, this is an informative note.</p>
   </div>
 <script>
 (function() {
@@ -3543,8 +3633,8 @@ The RDF module is depicted in Figure 5. In the JSON-LD serialization each <a dat
 
 })();
 </script>
-  <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
-  <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
+  <h2 class="heading no-num no-ref settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
+  <h3 class="heading no-num no-ref settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
    <li><a href="#academic-social-networking-service">Academic social networking service</a><span>, in § 3</span>
    <li><a href="#activity-log">Activity Log</a><span>, in § 3</span>
@@ -3562,13 +3652,13 @@ The RDF module is depicted in Figure 5. In the JSON-LD serialization each <a dat
    <li><a href="#summarizer-service">Summarizer Service</a><span>, in § 3</span>
    <li><a href="#verification-service">Verification Service</a><span>, in § 3</span>
   </ul>
-  <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
-  <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
+  <h2 class="heading no-num no-ref settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
+  <h3 class="heading no-num no-ref settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://datatracker.ietf.org/doc/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>
   </dl>
-  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <h3 class="heading no-num no-ref settled" id="informative"><span class="content">Non-Normative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
    <dt id="biblio-coara">[COARA]
    <dd><a href="https://coara.eu"><cite>Coalition for Advancing Research Assessment (CoARA)</cite></a>. URL: <a href="https://coara.eu">https://coara.eu</a>
@@ -3577,7 +3667,7 @@ The RDF module is depicted in Figure 5. In the JSON-LD serialization each <a dat
    <dt id="biblio-sparql-query">[SPARQL-QUERY]
    <dd>Eric Prud'hommeaux; Andy Seaborne. <a href="https://w3c.github.io/sparql-query/spec/"><cite>SPARQL Query Language for RDF</cite></a>. URL: <a href="https://w3c.github.io/sparql-query/spec/">https://w3c.github.io/sparql-query/spec/</a>
   </dl>
-  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
+  <h2 class="heading no-num no-ref settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
   <div style="counter-reset:issue">
    <div class="issue"> Add archivation of <a data-link-type="dfn" href="#claim">claim</a> step <a class="issue-return" href="#issue-c4c58bcc" title="Jump to section">↵</a></div>
    <div class="issue"> Add <a data-link-type="dfn" href="#claim">claim</a> archivation communication steps <a class="issue-return" href="#issue-d300657d" title="Jump to section">↵</a></div>
@@ -3803,16 +3893,6 @@ let dfnPanelData = {
 
 document.addEventListener("DOMContentLoaded", ()=>{
     genAllDfnPanels();
-
-    document.body.addEventListener("click", (e) => {
-        // If not handled already, just hide all dfn panels.
-        hideAllDfnPanels();
-    });
-});
-
-window.addEventListener("resize", () => {
-    // Pin any visible dfn panel
-    queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>positionDfnPanel(el));
 });
 
 function genAllDfnPanels() {
@@ -3824,16 +3904,17 @@ function genAllDfnPanels() {
             continue;
         }
         dfn.panelData = panelData;
-        insertDfnPopupAction(dfn);
+        genDfnPanel(dfn, panelData);
     }
 }
 
 function genDfnPanel(dfn, { dfnID, url, dfnText, refSections, external }) {
-    const dfnPanel = mk.aside({
-        class: "dfn-panel on",
+    const dfnPanel = mk.dialog({
+        class: "dfn-panel",
         id: `infopanel-for-${dfnID}`,
+        popover: "hint",
         "data-for": dfnID,
-        "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+        "aria-labelledby": `infopaneltitle-for-${dfnID}`,
         },
         mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
             `Info about the '${dfnText}' ${external?"external":""} reference.`),
@@ -3865,106 +3946,34 @@ function genDfnPanel(dfn, { dfnID, url, dfnText, refSections, external }) {
         event.stopPropagation();
         refocusOnTarget(event);
     });
-    dfnPanel.addEventListener('keydown', (event) => {
-        if(event.keyCode == 27) { // Escape key
-            hideDfnPanel({dfnPanel});
-            event.stopPropagation();
-            event.preventDefault();
+
+    dfnPanel.addEventListener('toggle', event=>{
+        if(event.newState == "closed") {
+            unpinDfnPanel(dfnPanel);
         }
     });
 
     dfnPanel.dfn = dfn;
     dfn.dfnPanel = dfnPanel;
+    dfn.after(dfnPanel);
+    const button = mk.button(
+        {
+            class:"dfn-panelbutton",
+            "popovertarget":dfnPanel.id
+        },
+        ...dfn.childNodes
+    );
+    dfn.append(button);
     return dfnPanel;
-}
-
-
-
-function hideAllDfnPanels() {
-    // Delete the currently-active dfn panel.
-    queryAll(".dfn-panel").forEach(dfnPanel=>hideDfnPanel({dfnPanel}));
-}
-
-function showDfnPanel(dfn) {
-    hideAllDfnPanels(); // Only display one at a time.
-
-    dfn.setAttribute("aria-expanded", "true");
-
-    const dfnPanel = genDfnPanel(dfn, dfn.panelData);
-
-    // Give the dfn a unique tabindex, and then
-    // give all the tabbable panel bits successive indexes.
-    let tabIndex = 100;
-    dfn.tabIndex = tabIndex++;
-    const tabbable = dfnPanel.querySelectorAll(":is(a, button)");
-    for (const el of tabbable) {
-        el.tabIndex = tabIndex++;
-    }
-
-    append(document.body, dfnPanel);
-    positionDfnPanel(dfnPanel);
-}
-
-function positionDfnPanel(dfnPanel) {
-    const dfn = dfnPanel.dfn;
-    const dfnPos = getBounds(dfn);
-    dfnPanel.style.top = dfnPos.bottom + "px";
-    dfnPanel.style.left = dfnPos.left + "px";
-
-    const panelPos = dfnPanel.getBoundingClientRect();
-    const panelMargin = 8;
-    const maxRight = document.body.parentNode.clientWidth - panelMargin;
-    if (panelPos.right > maxRight) {
-        const overflowAmount = panelPos.right - maxRight;
-        const newLeft = Math.max(panelMargin, dfnPos.left - overflowAmount);
-        dfnPanel.style.left = newLeft + "px";
-    }
 }
 
 function pinDfnPanel(dfnPanel) {
     // Switch it to "activated" state, which pins it.
     dfnPanel.classList.add("activated");
-    dfnPanel.style.position = "fixed";
-    dfnPanel.style.left = null;
-    dfnPanel.style.top = null;
 }
 
-function hideDfnPanel({dfn, dfnPanel}) {
-    if(!dfnPanel) dfnPanel = dfn.dfnPanel;
-    if(!dfn) dfn = dfnPanel.dfn;
-    dfn.dfnPanel = undefined;
-    dfnPanel.dfn = undefined;
-    dfn.setAttribute("aria-expanded", "false");
-    dfn.tabIndex = undefined;
-    dfnPanel.remove()
-}
-
-function toggleDfnPanel(dfn) {
-    if(dfn.dfnPanel) {
-        hideDfnPanel(dfn);
-    } else {
-        showDfnPanel(dfn);
-    }
-}
-
-function insertDfnPopupAction(dfn) {
-    dfn.setAttribute('role', 'button');
-    dfn.setAttribute('aria-expanded', 'false')
-    dfn.tabIndex = 0;
-    dfn.classList.add('has-dfn-panel');
-    dfn.addEventListener('click', (event) => {
-        toggleDfnPanel(dfn);
-        event.stopPropagation();
-    });
-    dfn.addEventListener('keypress', (event) => {
-        const kc = event.keyCode;
-        // 32->Space, 13->Enter
-        if(kc == 32 || kc == 13) {
-            toggleDfnPanel(dfn);
-            event.stopPropagation();
-            event.preventDefault();
-        }
-    });
+function unpinDfnPanel(dfnPanel) {
+    dfnPanel.classList.remove("activated");
 }
 
 function refocusOnTarget(event) {
@@ -3974,21 +3983,6 @@ function refocusOnTarget(event) {
         // This is needed after browser scrolls to the destination.
         target.focus();
     });
-}
-
-// TODO: shared util
-// Returns the root-level absolute position {left and top} of element.
-function getBounds(el, relativeTo=document.body) {
-    const relativeRect = relativeTo.getBoundingClientRect();
-    const elRect = el.getBoundingClientRect();
-    const top = elRect.top - relativeRect.top;
-    const left = elRect.left - relativeRect.left;
-    return {
-        top,
-        left,
-        bottom: top + elRect.height,
-        right: left + elRect.width,
-    }
 }
 
 function scrollToTargetAndHighlight(event) {
@@ -4282,7 +4276,12 @@ function hideRefHint(refHint) {
 function showRefHint(link) {
     if(link.classList.contains("dfn-link")) return;
     const url = link.getAttribute("href");
-    const ref = refsData[url];
+    const refHintKey = link.getAttribute("data-refhint-key");
+    let key = url;
+    if(refHintKey) {
+        key = refHintKey + "_" + url;
+    }
+    const ref = refsData[key];
     if(!ref) return;
 
     hideAllRefHints(); // Only display one at this time.
